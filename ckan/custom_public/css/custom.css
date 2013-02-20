@@ -1,0 +1,69 @@
+*{
+  font-family: 'ChivoRegular', Helvetica, Arial, sans-serif;
+}
+h1,h2,h3,h4,h5,h6{
+  font-family: 'LaconicRegular', Helvetica, Arial, sans-serif;
+}
+
+a, a:visited {
+  color: #e5420c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #96b000;
+}
+
+header #site-name {
+  font-family: 'ChivoRegular', Helvetica, Arial, sans-serif;
+}
+.header .beta-logo {
+  background-image: url("../img/beta-ribbon.png");
+  height: 180px;
+  position: absolute;
+  right: 0;
+  width: 180px;
+}
+header #logo {
+  float: left;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+header .menu {
+  float: left;
+}
+header .account {
+  float: right !important;
+}
+header .menu #menusearch {
+  float:none;
+  clear:both;
+}
+header .menu form {
+  display:block;
+  overflow: hidden;
+}
+
+.header.outer {
+  background-color: #eaeaea;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(##eaeaea), to(#fafafa));
+  background-image: -webkit-linear-gradient(top, #eaeaea, #fafafa);
+  background-image:    -moz-linear-gradient(top, #eaeaea, #fafafa);
+  background-image:     -ms-linear-gradient(top, #eaeaea, #fafafa);
+  background-image:      -o-linear-gradient(top, #eaeaea, #fafafa);
+  background-image:         linear-gradient(top, #eaeaea, #fafafa);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eaeaea', EndColorStr='#fafafa');
+}
+
+body.index.home .front-page .action-box-inner input {
+  font-family: 'ChivoRegular', Helvetica, Arial, sans-serif;
+}
+
+body.index.home .front-page .action-box-inner .btn-primary {
+  float: right;
+}
+body.index.home .front-page .action-box {
+  border-radius: 4px;
+  background:  #CAD77F;
+  color:#262C00;
+}
