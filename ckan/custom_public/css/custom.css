@@ -5,24 +5,43 @@ h1,h2,h3,h4,h5,h6 {
   font-family: 'LaconicRegular', Helvetica, Arial, sans-serif;
 }
 
-a, a:visited {
-  color: #e5420c;
-  text-decoration: none;
+.beta-logo {
+  background-image: url("../img/beta-ribbon.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  position: absolute;
+  top: 0px;
+  right: 0;
+  z-index: 10;
+  
+  width: 150px;
+  height: 150px;
 }
 
-a:hover {
-  color: #96b000;
+@media (max-width: 1250px) {
+  .beta-logo {
+    width: 100px;
+    height: 100px;
+  }
 }
+@media (max-width: 1150px) {
+  .beta-logo {
+    width: 75px;
+    height: 75px;
+  }
+}
+@media (max-width: 1110px) {
+  .beta-logo {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* FROM OLD CKAN */
 
 header #site-name {
   font-family: 'ChivoRegular', Helvetica, Arial, sans-serif;
-}
-.header .beta-logo {
-  background-image: url("../img/beta-ribbon.png");
-  height: 180px;
-  position: absolute;
-  right: 0;
-  width: 180px;
 }
 header #logo {
   float: left;
@@ -31,9 +50,6 @@ header #logo {
 }
 header .menu {
   float: left;
-}
-header .account {
-  float: right !important;
 }
 header .menu #menusearch {
   float:none;
