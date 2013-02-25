@@ -5313,7 +5313,276 @@ ul.icons li .icon-large:before {
 .icon-user-md:before {
   content: "\f200";
 }
-/* line 40, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/*
+ * Button style overrides
+ */
+/* line 6, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn {
+  background-color: #ffffff;
+  background-image: -moz-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -ms-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#ffffff));
+  background-image: -webkit-linear-gradient(top, #ffffff, #ffffff);
+  background-image: -o-linear-gradient(top, #ffffff, #ffffff);
+  background-image: linear-gradient(top, #ffffff, #ffffff);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ffffff', GradientType=0);
+  border-color: #ffffff #ffffff #d9d9d9;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #ffffff;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn:hover,
+.btn:active,
+.btn.active,
+.btn.disabled,
+.btn[disabled] {
+  background-color: #eaeaea;
+  *background-color: #dddddd;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn:active,
+.btn.active {
+  background-color: #d1d1d1 \9;
+}
+/* line 9, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn-primary {
+  background-color: #e5420c;
+  background-image: -moz-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -ms-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5420c), to(#e5420c));
+  background-image: -webkit-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -o-linear-gradient(top, #e5420c, #e5420c);
+  background-image: linear-gradient(top, #e5420c, #e5420c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5420c', endColorstr='#e5420c', GradientType=0);
+  border-color: #e5420c #e5420c #9c2d08;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e5420c;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary.active,
+.btn-primary.disabled,
+.btn-primary[disabled] {
+  background-color: #d3754e;
+  *background-color: #ce653a;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #bf592f \9;
+}
+/* line 13, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn-warning {
+  background-color: #fbb450;
+  background-image: -moz-linear-gradient(top, #fbb450, #fbb450);
+  background-image: -ms-linear-gradient(top, #fbb450, #fbb450);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#fbb450));
+  background-image: -webkit-linear-gradient(top, #fbb450, #fbb450);
+  background-image: -o-linear-gradient(top, #fbb450, #fbb450);
+  background-image: linear-gradient(top, #fbb450, #fbb450);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#fbb450', GradientType=0);
+  border-color: #fbb450 #fbb450 #f89406;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #fbb450;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-warning:hover,
+.btn-warning:active,
+.btn-warning.active,
+.btn-warning.disabled,
+.btn-warning[disabled] {
+  background-color: #f89406;
+  *background-color: #df8505;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-warning:active,
+.btn-warning.active {
+  background-color: #c67605 \9;
+}
+/* line 17, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn-danger {
+  background-color: #ee5f5b;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: -ms-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#ee5f5b));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: -o-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#ee5f5b', GradientType=0);
+  border-color: #ee5f5b #ee5f5b #e51d18;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #ee5f5b;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-danger:hover,
+.btn-danger:active,
+.btn-danger.active,
+.btn-danger.disabled,
+.btn-danger[disabled] {
+  background-color: #bd362f;
+  *background-color: #a9302a;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-danger:active,
+.btn-danger.active {
+  background-color: #942a25 \9;
+}
+/* line 21, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn-success {
+  background-color: #9db21b;
+  background-image: -moz-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -ms-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9db21b), to(#9db21b));
+  background-image: -webkit-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -o-linear-gradient(top, #9db21b, #9db21b);
+  background-image: linear-gradient(top, #9db21b, #9db21b);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9db21b', endColorstr='#9db21b', GradientType=0);
+  border-color: #9db21b #9db21b #627011;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #9db21b;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-success:hover,
+.btn-success:active,
+.btn-success.active,
+.btn-success.disabled,
+.btn-success[disabled] {
+  background-color: #baca53;
+  *background-color: #b2c440;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-success:active,
+.btn-success.active {
+  background-color: #a2b337 \9;
+}
+/* line 25, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn-info {
+  background-color: #5bc0de;
+  background-image: -moz-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: -ms-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#5bc0de));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: -o-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: linear-gradient(top, #5bc0de, #5bc0de);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#5bc0de', GradientType=0);
+  border-color: #5bc0de #5bc0de #28a1c5;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #5bc0de;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-info:hover,
+.btn-info:active,
+.btn-info.active,
+.btn-info.disabled,
+.btn-info[disabled] {
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-info:active,
+.btn-info.active {
+  background-color: #24748c \9;
+}
+/* line 29, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/custom.less */
+.btn-inverse {
+  background-color: #555555;
+  background-image: -moz-linear-gradient(top, #555555, #555555);
+  background-image: -ms-linear-gradient(top, #555555, #555555);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#555555), to(#555555));
+  background-image: -webkit-linear-gradient(top, #555555, #555555);
+  background-image: -o-linear-gradient(top, #555555, #555555);
+  background-image: linear-gradient(top, #555555, #555555);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#555555', GradientType=0);
+  border-color: #555555 #555555 #2f2f2f;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #555555;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-inverse:hover,
+.btn-inverse:active,
+.btn-inverse.active,
+.btn-inverse.disabled,
+.btn-inverse[disabled] {
+  background-color: #222222;
+  *background-color: #151515;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.btn-inverse:active,
+.btn-inverse.active {
+  background-color: #080808 \9;
+}
+/* line 63, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .pill {
   background-color: #cccccc;
   color: #ffffff;
@@ -5323,15 +5592,15 @@ ul.icons li .icon-large:before {
   -moz-border-radius: 7px;
   border-radius: 7px;
 }
-/* line 46, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 69, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .pill a {
   color: #ffffff;
 }
-/* line 48, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 71, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .pill a.remove {
   font-size: 11px;
 }
-/* line 54, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 77, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .tag {
   background: url("../../../base/images/background-tag.png") no-repeat -13px center;
   position: relative;
@@ -5343,7 +5612,7 @@ ul.icons li .icon-large:before {
   padding-right: 5px;
   margin-right: 11px;
 }
-/* line 64, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 87, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .tag:before {
   content: "";
   background: url("../../../base/images/background-tag.png") no-repeat center left;
@@ -5354,23 +5623,23 @@ ul.icons li .icon-large:before {
   right: -11px;
   width: 11px;
 }
-/* line 76, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 99, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .unstyled {
   margin: 0;
   list-style: none;
 }
-/* line 81, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 104, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .simple-item {
   font-size: 12px;
   line-height: 1.1666666666666667em;
   padding: 7px 25px;
   border-bottom: 1px dotted #cccccc;
 }
-/* line 86, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 109, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .simple-item:last-of-type {
   border-bottom: 0;
 }
-/* line 91, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 114, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .simple-list {
   *zoom: 1;
   margin: 0;
@@ -5386,43 +5655,43 @@ ul.icons li .icon-large:before {
 .simple-list:after {
   clear: both;
 }
-/* line 95, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 118, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .simple-list > li {
   font-size: 12px;
   line-height: 1.1666666666666667em;
   padding: 7px 25px;
   border-bottom: 1px dotted #cccccc;
 }
-/* line 86, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 109, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .simple-list > li:last-of-type {
   border-bottom: 0;
 }
-/* line 99, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 122, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .simple-list .ckan-icon {
   position: relative;
   top: 0px;
 }
-/* line 105, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 128, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .module-narrow .simple-list > li {
   padding-left: 15px;
   padding-right: 15px;
   position: relative;
 }
-/* line 111, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 134, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .listing li {
   text-align: right;
   margin-bottom: 5px;
 }
-/* line 123, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 146, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .listing .key {
   clear: right;
   font-weight: bold;
 }
-/* line 128, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 151, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .js .tab-content {
   display: none;
 }
-/* line 132, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 155, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .js .tab-content.active {
   display: block;
 }
@@ -5834,18 +6103,18 @@ ol.media-grid:after {
 .nav-simple:after {
   clear: both;
 }
-/* line 95, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 118, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .nav-simple > li {
   font-size: 12px;
   line-height: 1.1666666666666667em;
   padding: 7px 25px;
   border-bottom: 1px dotted #cccccc;
 }
-/* line 86, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 109, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .nav-simple > li:last-of-type {
   border-bottom: 0;
 }
-/* line 99, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 122, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .nav-simple .ckan-icon {
   position: relative;
   top: 0px;
@@ -5889,7 +6158,7 @@ ol.media-grid:after {
   padding-right: 0px;
   padding: 1px 22px;
 }
-/* line 64, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+/* line 87, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
 .nav-item.active > a:before {
   content: "";
   background: url("../../../base/images/background-tag.png") no-repeat center left;
@@ -6367,11 +6636,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #e5420c, #d3754e);
   background-image: -o-linear-gradient(top, #e5420c, #d3754e);
   background-image: linear-gradient(top, #e5420c, #d3754e);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5420c', endColorstr='#d3754e', GradientType=0);
   border-color: #d3754e #d3754e #aa502a;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #d3754e;
+  background-color: #e5420c;
+  background-image: -moz-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -ms-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5420c), to(#e5420c));
+  background-image: -webkit-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -o-linear-gradient(top, #e5420c, #e5420c);
+  background-image: linear-gradient(top, #e5420c, #e5420c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5420c', endColorstr='#e5420c', GradientType=0);
+  border-color: #e5420c #e5420c #9c2d08;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e5420c;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -6396,6 +6675,26 @@ textarea {
   border-bottom-color: #ffffff;
   opacity: 0.75;
   filter: alpha(opacity=75);
+}
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.control-custom.disabled .checkbox.btn:hover,
+.control-custom.disabled .checkbox.btn:active,
+.control-custom.disabled .checkbox.btn.active,
+.control-custom.disabled .checkbox.btn.disabled,
+.control-custom.disabled .checkbox.btn[disabled] {
+  background-color: #d3754e;
+  *background-color: #ce653a;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.control-custom.disabled .checkbox.btn:active,
+.control-custom.disabled .checkbox.btn.active {
+  background-color: #bf592f \9;
 }
 /* line 372, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/forms.less */
 .alert-danger a,
@@ -7179,11 +7478,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #9db21b, #baca53);
   background-image: -o-linear-gradient(top, #9db21b, #baca53);
   background-image: linear-gradient(top, #9db21b, #baca53);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9db21b', endColorstr='#baca53', GradientType=0);
   border-color: #baca53 #baca53 #919f31;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #baca53;
+  background-color: #9db21b;
+  background-image: -moz-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -ms-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9db21b), to(#9db21b));
+  background-image: -webkit-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -o-linear-gradient(top, #9db21b, #9db21b);
+  background-image: linear-gradient(top, #9db21b, #9db21b);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9db21b', endColorstr='#9db21b', GradientType=0);
+  border-color: #9db21b #9db21b #627011;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #9db21b;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7209,6 +7518,26 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-success:hover,
+.toolbar .btn-success:active,
+.toolbar .btn-success.active,
+.toolbar .btn-success.disabled,
+.toolbar .btn-success[disabled] {
+  background-color: #baca53;
+  *background-color: #b2c440;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-success:active,
+.toolbar .btn-success.active {
+  background-color: #a2b337 \9;
+}
 /* line 82, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .toolbar .btn-primary {
   color: #ffffff;
@@ -7220,11 +7549,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #e5420c, #d3754e);
   background-image: -o-linear-gradient(top, #e5420c, #d3754e);
   background-image: linear-gradient(top, #e5420c, #d3754e);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5420c', endColorstr='#d3754e', GradientType=0);
   border-color: #d3754e #d3754e #aa502a;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #d3754e;
+  background-color: #e5420c;
+  background-image: -moz-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -ms-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#e5420c), to(#e5420c));
+  background-image: -webkit-linear-gradient(top, #e5420c, #e5420c);
+  background-image: -o-linear-gradient(top, #e5420c, #e5420c);
+  background-image: linear-gradient(top, #e5420c, #e5420c);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e5420c', endColorstr='#e5420c', GradientType=0);
+  border-color: #e5420c #e5420c #9c2d08;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #e5420c;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7250,7 +7589,27 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-/* line 86, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-primary:hover,
+.toolbar .btn-primary:active,
+.toolbar .btn-primary.active,
+.toolbar .btn-primary.disabled,
+.toolbar .btn-primary[disabled] {
+  background-color: #d3754e;
+  *background-color: #ce653a;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-primary:active,
+.toolbar .btn-primary.active {
+  background-color: #bf592f \9;
+}
+/* line 87, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .toolbar .btn-warning {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -7261,11 +7620,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #fbb450, #f89406);
   background-image: -o-linear-gradient(top, #fbb450, #f89406);
   background-image: linear-gradient(top, #fbb450, #f89406);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#f89406', GradientType=0);
   border-color: #f89406 #f89406 #ad6704;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #f89406;
+  background-color: #fbb450;
+  background-image: -moz-linear-gradient(top, #fbb450, #fbb450);
+  background-image: -ms-linear-gradient(top, #fbb450, #fbb450);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#fbb450), to(#fbb450));
+  background-image: -webkit-linear-gradient(top, #fbb450, #fbb450);
+  background-image: -o-linear-gradient(top, #fbb450, #fbb450);
+  background-image: linear-gradient(top, #fbb450, #fbb450);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fbb450', endColorstr='#fbb450', GradientType=0);
+  border-color: #fbb450 #fbb450 #f89406;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #fbb450;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7291,7 +7660,27 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-/* line 90, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-warning:hover,
+.toolbar .btn-warning:active,
+.toolbar .btn-warning.active,
+.toolbar .btn-warning.disabled,
+.toolbar .btn-warning[disabled] {
+  background-color: #f89406;
+  *background-color: #df8505;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-warning:active,
+.toolbar .btn-warning.active {
+  background-color: #c67605 \9;
+}
+/* line 91, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .toolbar .btn-danger {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -7302,11 +7691,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #ee5f5b, #bd362f);
   background-image: -o-linear-gradient(top, #ee5f5b, #bd362f);
   background-image: linear-gradient(top, #ee5f5b, #bd362f);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#bd362f', GradientType=0);
   border-color: #bd362f #bd362f #802420;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #bd362f;
+  background-color: #ee5f5b;
+  background-image: -moz-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: -ms-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ee5f5b), to(#ee5f5b));
+  background-image: -webkit-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: -o-linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-image: linear-gradient(top, #ee5f5b, #ee5f5b);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ee5f5b', endColorstr='#ee5f5b', GradientType=0);
+  border-color: #ee5f5b #ee5f5b #e51d18;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #ee5f5b;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7332,7 +7731,27 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-/* line 94, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-danger:hover,
+.toolbar .btn-danger:active,
+.toolbar .btn-danger.active,
+.toolbar .btn-danger.disabled,
+.toolbar .btn-danger[disabled] {
+  background-color: #bd362f;
+  *background-color: #a9302a;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-danger:active,
+.toolbar .btn-danger.active {
+  background-color: #942a25 \9;
+}
+/* line 95, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .toolbar .btn-success {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -7343,11 +7762,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #9db21b, #baca53);
   background-image: -o-linear-gradient(top, #9db21b, #baca53);
   background-image: linear-gradient(top, #9db21b, #baca53);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9db21b', endColorstr='#baca53', GradientType=0);
   border-color: #baca53 #baca53 #919f31;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #baca53;
+  background-color: #9db21b;
+  background-image: -moz-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -ms-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9db21b), to(#9db21b));
+  background-image: -webkit-linear-gradient(top, #9db21b, #9db21b);
+  background-image: -o-linear-gradient(top, #9db21b, #9db21b);
+  background-image: linear-gradient(top, #9db21b, #9db21b);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9db21b', endColorstr='#9db21b', GradientType=0);
+  border-color: #9db21b #9db21b #627011;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #9db21b;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7373,7 +7802,27 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-/* line 98, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-success:hover,
+.toolbar .btn-success:active,
+.toolbar .btn-success.active,
+.toolbar .btn-success.disabled,
+.toolbar .btn-success[disabled] {
+  background-color: #baca53;
+  *background-color: #b2c440;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-success:active,
+.toolbar .btn-success.active {
+  background-color: #a2b337 \9;
+}
+/* line 99, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .toolbar .btn-info {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -7384,11 +7833,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: -o-linear-gradient(top, #5bc0de, #2f96b4);
   background-image: linear-gradient(top, #5bc0de, #2f96b4);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#2f96b4', GradientType=0);
   border-color: #2f96b4 #2f96b4 #1f6377;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #2f96b4;
+  background-color: #5bc0de;
+  background-image: -moz-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: -ms-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5bc0de), to(#5bc0de));
+  background-image: -webkit-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: -o-linear-gradient(top, #5bc0de, #5bc0de);
+  background-image: linear-gradient(top, #5bc0de, #5bc0de);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#5bc0de', GradientType=0);
+  border-color: #5bc0de #5bc0de #28a1c5;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #5bc0de;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7414,7 +7873,27 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-/* line 102, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-info:hover,
+.toolbar .btn-info:active,
+.toolbar .btn-info.active,
+.toolbar .btn-info.disabled,
+.toolbar .btn-info[disabled] {
+  background-color: #2f96b4;
+  *background-color: #2a85a0;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-info:active,
+.toolbar .btn-info.active {
+  background-color: #24748c \9;
+}
+/* line 103, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .toolbar .btn-inverse {
   color: #ffffff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
@@ -7425,11 +7904,21 @@ textarea {
   background-image: -webkit-linear-gradient(top, #555555, #222222);
   background-image: -o-linear-gradient(top, #555555, #222222);
   background-image: linear-gradient(top, #555555, #222222);
-  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#222222', GradientType=0);
   border-color: #222222 #222222 #000000;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
   *background-color: #222222;
+  background-color: #555555;
+  background-image: -moz-linear-gradient(top, #555555, #555555);
+  background-image: -ms-linear-gradient(top, #555555, #555555);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#555555), to(#555555));
+  background-image: -webkit-linear-gradient(top, #555555, #555555);
+  background-image: -o-linear-gradient(top, #555555, #555555);
+  background-image: linear-gradient(top, #555555, #555555);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#555555', endColorstr='#555555', GradientType=0);
+  border-color: #555555 #555555 #2f2f2f;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #555555;
   /* Darken IE7 buttons by default so they stand out more given they won't have borders */
 
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
@@ -7455,11 +7944,31 @@ textarea {
   opacity: 0.75;
   filter: alpha(opacity=75);
 }
-/* line 106, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 10, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-inverse:hover,
+.toolbar .btn-inverse:active,
+.toolbar .btn-inverse.active,
+.toolbar .btn-inverse.disabled,
+.toolbar .btn-inverse[disabled] {
+  background-color: #222222;
+  *background-color: #151515;
+  background-position: 0 -50px;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  -o-transition: none;
+  transition: none;
+}
+/* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/mixins.less */
+.toolbar .btn-inverse:active,
+.toolbar .btn-inverse.active {
+  background-color: #080808 \9;
+}
+/* line 107, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .hide-heading {
   display: none;
 }
-/* line 110, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 111, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .page-header {
   position: relative;
   border-bottom: 1px solid #d0d0d0;
@@ -7477,19 +7986,19 @@ textarea {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f0f0f0', GradientType=0);
 }
-/* line 116, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 117, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .page-header .nav-tabs {
   position: absolute;
   left: 20px;
   bottom: -1px;
   margin-bottom: 0;
 }
-/* line 121, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 122, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .page-header .nav-tabs i {
   margin-right: 10px;
   font-size: 14px;
 }
-/* line 125, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
+/* line 126, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/toolbar.less */
 .page-header .nav-tabs a:hover {
   background-color: #ffffff;
 }
@@ -8351,15 +8860,15 @@ header.masthead .debug {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#fafafa', GradientType=0);
   font-size: 12px;
   padding: 20px 0;
-  background-color: #c1d747;
-  background-image: -moz-linear-gradient(top, #aac11f, #e3f782);
-  background-image: -ms-linear-gradient(top, #aac11f, #e3f782);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#aac11f), to(#e3f782));
-  background-image: -webkit-linear-gradient(top, #aac11f, #e3f782);
-  background-image: -o-linear-gradient(top, #aac11f, #e3f782);
-  background-image: linear-gradient(top, #aac11f, #e3f782);
+  background-color: #f3f3f3;
+  background-image: -moz-linear-gradient(top, #f5f5f5, #f0f0f0);
+  background-image: -ms-linear-gradient(top, #f5f5f5, #f0f0f0);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f0f0f0));
+  background-image: -webkit-linear-gradient(top, #f5f5f5, #f0f0f0);
+  background-image: -o-linear-gradient(top, #f5f5f5, #f0f0f0);
+  background-image: linear-gradient(top, #f5f5f5, #f0f0f0);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#aac11f', endColorstr='#e3f782', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f0f0f0', GradientType=0);
 }
 /* line 14, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/public/base/vendor/bootstrap/less/mixins.less */
 .site-footer:before,
@@ -8410,7 +8919,7 @@ header.masthead .debug {
   width: 65px;
   height: 21px;
   margin-top: 2px;
-  background: url("../../../base/images/ckan-logo-footer.png") no-repeat top left;
+  background: url("../../img/ckan-logo-footer.png") no-repeat top left;
   text-indent: -900em;
 }
 /* line 48, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
@@ -9079,7 +9588,7 @@ header.masthead .debug {
 }
 /* line 23, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/ckan.less */
 body {
-  background-color: #e3f782;
+  background-color: #f0f0f0;
 }
 /* line 29, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/ckan.less */
 [hidden] {
