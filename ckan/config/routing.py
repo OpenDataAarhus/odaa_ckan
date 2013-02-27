@@ -424,4 +424,8 @@ def make_map():
                  _redirect_code='301 Moved Permanently')
     map.connect('/*url', controller='template', action='view')
 
+    # Forum
+    with SubMapper(map, controller='forum') as m:
+        m.connect('forum', '/forum', action='list')
+ 
     return map
