@@ -423,5 +423,5 @@ def make_map():
     map.redirect('/*(url)/', '/{url}',
                  _redirect_code='301 Moved Permanently')
     map.connect('/*url', controller='template', action='view')
-
+ 
     return map
