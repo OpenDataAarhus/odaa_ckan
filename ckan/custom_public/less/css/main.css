@@ -144,7 +144,7 @@ textarea {
 /* line 9, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/public/base/vendor/bootstrap/less/scaffolding.less */
 body {
   margin: 0;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'ChivoRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
   color: #333333;
@@ -409,7 +409,7 @@ a:hover {
 /* line 9, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/public/base/vendor/bootstrap/less/type.less */
 p {
   margin: 0 0 9px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'ChivoRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 13px;
   line-height: 18px;
 }
@@ -753,7 +753,7 @@ input,
 button,
 select,
 textarea {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'ChivoRegular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 /* line 55, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/public/base/vendor/bootstrap/less/forms.less */
 label {
@@ -8860,15 +8860,15 @@ header.masthead .debug {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#fafafa', GradientType=0);
   font-size: 12px;
   padding: 20px 0;
-  background-color: #f3f3f3;
-  background-image: -moz-linear-gradient(top, #f5f5f5, #f0f0f0);
-  background-image: -ms-linear-gradient(top, #f5f5f5, #f0f0f0);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f5f5f5), to(#f0f0f0));
-  background-image: -webkit-linear-gradient(top, #f5f5f5, #f0f0f0);
-  background-image: -o-linear-gradient(top, #f5f5f5, #f0f0f0);
-  background-image: linear-gradient(top, #f5f5f5, #f0f0f0);
+  background-color: #9caf1b;
+  background-image: -moz-linear-gradient(top, #9caf1b, #9caf1b);
+  background-image: -ms-linear-gradient(top, #9caf1b, #9caf1b);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#9caf1b), to(#9caf1b));
+  background-image: -webkit-linear-gradient(top, #9caf1b, #9caf1b);
+  background-image: -o-linear-gradient(top, #9caf1b, #9caf1b);
+  background-image: linear-gradient(top, #9caf1b, #9caf1b);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f0f0f0', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9caf1b', endColorstr='#9caf1b', GradientType=0);
 }
 /* line 14, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/public/base/vendor/bootstrap/less/mixins.less */
 .site-footer:before,
@@ -8884,11 +8884,11 @@ header.masthead .debug {
 .site-footer,
 .site-footer label,
 .site-footer small {
-  color: #333333;
+  color: #000000;
 }
 /* line 14, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .site-footer a {
-  color: #e5420c;
+  color: #000000;
 }
 /* line 18, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .footer-links,
@@ -8910,7 +8910,7 @@ header.masthead .debug {
 }
 /* line 34, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .attribution small {
-  color: #333333;
+  color: #000000;
   font-size: 12px;
 }
 /* line 39, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
@@ -8918,13 +8918,23 @@ header.masthead .debug {
   display: block;
   width: 65px;
   height: 21px;
-  margin-top: 2px;
+  float: left;
+  margin-top: 3px;
+  margin-right: 10px;
   background: url("../../img/ckan-logo-footer.png") no-repeat top left;
   text-indent: -900em;
 }
-/* line 48, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 49, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+.attribution .drupal-footer-logo {
+  background: url("../../img/drupal-footer-logo.png") no-repeat;
+  float: left;
+  height: 25px;
+  width: 104px;
+}
+/* line 56, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-select {
   *zoom: 1;
+  margin-top: 20px;
 }
 /* line 14, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/public/base/vendor/bootstrap/less/mixins.less */
 .lang-select:before,
@@ -8936,22 +8946,22 @@ header.masthead .debug {
 .lang-select:after {
   clear: both;
 }
-/* line 52, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 61, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-select label,
 .lang-select select,
 .lang-select .lang-container {
   float: left;
   margin-top: 0;
 }
-/* line 59, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 68, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown {
   color: #000000;
 }
-/* line 63, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 72, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown li {
   width: auto;
 }
-/* line 69, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 78, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value]:before {
   content: "";
   display: inline-block;
@@ -8963,93 +8973,93 @@ header.masthead .debug {
   position: relative;
   top: 1px;
 }
-/* line 81, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 90, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/en/"]:before {
   background-position: 0 0;
 }
-/* line 85, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 94, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/de/"]:before {
   background-position: 0 -11px;
 }
-/* line 89, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 98, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/fr/"]:before {
   background-position: 0 -22px;
 }
-/* line 93, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 102, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/it/"]:before {
   background-position: 0 -33px;
 }
-/* line 97, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 106, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/es/"]:before {
   background-position: 0 -44px;
 }
-/* line 101, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 110, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/pl/"]:before {
   background-position: 0 -55px;
 }
-/* line 105, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 114, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/ru/"]:before {
   background-position: 0 -66px;
 }
-/* line 109, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 118, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/nl/"]:before {
   background-position: 0 -77px;
 }
-/* line 113, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 122, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/sv/"]:before {
   background-position: 0 -88px;
 }
-/* line 117, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 126, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/no/"]:before {
   background-position: 0 -99px;
 }
-/* line 121, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 130, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/cs/"]:before,
 .lang-dropdown .select2-result-label[data-value*="/cs_CZ/"]:before {
   background-position: 0 -110px;
 }
-/* line 126, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 135, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/hu/"]:before {
   background-position: 0 -121px;
 }
-/* line 130, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 139, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/pt_BR/"]:before {
   background-position: 0 -132px;
 }
-/* line 134, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 143, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/fi/"]:before {
   background-position: 0 -143px;
 }
-/* line 138, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 147, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/bg/"]:before {
   background-position: 0 -154px;
 }
-/* line 142, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 151, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/ca/"]:before {
   background-position: 0 -165px;
 }
-/* line 146, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 155, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/sq/"]:before {
   background-position: 0 -176px;
 }
-/* line 150, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 159, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/sr/"]:before,
 .lang-dropdown .select2-result-label[data-value*="/sr_Latn/"]:before {
   background-position: 0 -187px;
 }
-/* line 155, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 164, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/zh_TW/"]:before {
   background-position: 0 -198px;
 }
-/* line 159, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 168, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/lv/"]:before {
   background-position: 0 -209px;
 }
-/* line 163, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 172, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/sk/"]:before {
   background-position: 0 -220px;
 }
-/* line 167, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
+/* line 176, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/footer.less */
 .lang-dropdown .select2-result-label[data-value*="/pt_BR/"]:before {
   background-position: 0 -132px;
 }
@@ -9588,7 +9598,7 @@ header.masthead .debug {
 }
 /* line 23, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/ckan.less */
 body {
-  background-color: #f0f0f0;
+  background-color: #9caf1b;
 }
 /* line 29, /Volumes/CKAN 2.0/pyenv/src/ckan/ckan/custom_public/less/ckan.less */
 [hidden] {
