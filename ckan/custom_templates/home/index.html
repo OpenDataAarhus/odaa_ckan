@@ -27,11 +27,10 @@
           {{ h.render_markdown(g.site_intro_text) }}
           {% else %}
             {% block home_primary_content %}
-              <h1 class="page-heading">{% block home_primary_heading %}{{ _("Welcome to CKAN") }}{% endblock %}</h1>
+              <h1 class="page-heading">{% block home_primary_heading %}{{ _("Velkommen til Aarhus' open data platform") }}{% endblock %}</h1>
               <p>
               {% block home_primary_text %}
-                {% trans %}This is a nice introductory paragraph about CKAN or the site
-                in general. We don't have any copy to go here yet but soon we will
+                {% trans %}Her bliver åbne data fra Aarhus-området gjort frit tilgængelige, så de er nemme at finde for dig. Vi  håber, at du vil forvandle de åbne data til nye og innovative services og fortælle om det her på platformen.
                 {% endtrans %}
               {% endblock %}
               </p>
@@ -42,11 +41,8 @@
 
       {% block home_image %}
         <section class="featured media-overlay">
-          <h2 class="media-heading">{% block home_image_caption %}{{ _("This is a featured section") }}{% endblock %}</h2>
           {% block home_image_content %}
-            <a class="media-image" href="#">
-              <img src="http://placehold.it/220x120" alt="Placeholder" width="220" height="120" />
-            </a>
+            <img src="/media/your_rainbow_1_small.jpg" alt="Living Rainbow, Aarhus" />
           {% endblock %}
         </section>
       {% endblock %}
