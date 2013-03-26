@@ -20,5 +20,9 @@ class ForumPlugin(SingletonPlugin):
 		else:
 			with SubMapper(map, controller='forum') as m:
 				m.connect('forum', '/forum', action='read')
+			
+			# This is a evil hack, that have to be fixed.
+			with SubMapper(map, controller='app') as m:
+				m.connect('app', '/app', action='read')
 
 		return map
