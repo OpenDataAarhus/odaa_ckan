@@ -5,20 +5,15 @@
         {% block footer_nav %}
           <ul class="unstyled row-fluid">
             {% block footer_links %}
-              <li><a href="#">{{ _('Terms and Conditions') }}</a></li>
-              <li><a href="#">{{ _('Accessibility') }}</a></li>
-              <li><a href="#">{{ _('Code of conduct') }}</a></li>
-              <li><a href="#">{{ _('Moderation policy') }}</a></li>
               <li><a href="/faq">{{ _('FAQ') }}</a></li>
-              <li><a href="#">{{ _('Privacy') }}</a></li>
               <li><a href="/contact">{{ _('Contact us') }}</a></li>
-              <li><a href="#">{{ _('Consultation') }}</a></li>
             {% endblock %}
           </ul>
         {% endblock %}
       </nav>
       <a class="hide-text award-smart-city-footer-logo" href="http://www.itaward.dk/default.asp?Id=320&cpc=1">Nomineret Årets Smart City-pris 2013</a>
-      <div class="attribution">
+      <a class="hide-text made-with-aarhus-footer-logo" href="http://www.aarhus.dk/da/omkommunen/english.aspx">Made with Aarhus - Danish for progress</a>      
+<div class="attribution">
         {% block footer_attribution %}
         {% trans %}<p><strong>Powered by</strong></p>{% endtrans %}
         <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
