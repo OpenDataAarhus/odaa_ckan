@@ -1,34 +1,49 @@
 <footer class="site-footer">
   <div class="container">
     {% block footer_content %}
-      <nav class="footer-links row-fluid">
-        {% block footer_nav %}
-          <ul class="unstyled row-fluid">
-            {% block footer_links %}
-              <li><a href="/faq">{{ _('FAQ') }}</a></li>
-              <li><a href="/contact">{{ _('Contact us') }}</a></li>
-            {% endblock %}
-          </ul>
-        {% endblock %}
-      </nav>
-      <div class="attribution attribution-first">      
-        <a class="hide-text award-smart-city-footer-logo" href="http://www.itaward.dk/default.asp?Id=320&cpc=1">Nomineret Årets Smart City-pris 2013</a>
-        <a class="hide-text made-with-aarhus-footer-logo" href="http://www.aarhus.dk/da/omkommunen/english.aspx">Made with Aarhus - Danish for progress</a>      
-      </div>      
-      <div class="attribution attribution-second">
-        {% block footer_attribution %}
-        {% trans %}<p><strong>Powered by</strong></p>{% endtrans %}
-        <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
-        <a href="http://drupal.org" class="hide-text drupal-footer-logo">Drupal</a>
-        <div class="clearfix"></div>
-        {% endblock %}
-        {% block footer_lang %}
-          {% snippet "snippets/language_selector.html" %}
-        {% endblock %}
+      <div class="footer-first">
+        <nav class="footer-links row-fluid">
+          {% block footer_nav %}
+            <ul class="unstyled row-fluid">
+              {% block footer_links %}
+                <li><a href="/faq">{{ _('FAQ') }}</a></li>
+                <li><a href="/contact">{{ _('Contact us') }}</a></li>
+              {% endblock %}
+            </ul>
+          {% endblock %}
+        </nav>
+<!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+<form action="http://odaa.us5.list-manage1.com/subscribe/post?u=78ef4b94a7d1865894df78e68&amp;id=28f6dabe60" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+	<h2>Tilmeld dig vores nyhedsbrev</h2>
+<div class="mc-field-group">
+	<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="Email adresse"><input type="submit" value="Tilmeld" name="subscribe" id="mc-embedded-subscribe" class="button">
+</div>
+	<div id="mce-responses" class="clear">
+		<div class="response" id="mce-error-response" style="display:none"></div>
+		<div class="response" id="mce-success-response" style="display:none"></div>
+	</div>
+</form>
+</div>
+<!--End mc_embed_signup-->
+      </div>
+      <div class="footer-second">
+        <div class="attribution attribution-first">      
+          <a class="hide-text made-with-aarhus-footer-logo" href="http://www.aarhus.dk/da/omkommunen/english.aspx">Made with Aarhus - Danish for progress</a> 
+          <a class="hide-text award-smart-city-footer-logo" href="http://www.itaward.dk/default.asp?Id=320&amp;cpc=1">Nomineret Årets Smart City-pris 2013</a>
+        </div>
+        <div class="attribution attribution-second">
+          {% block footer_attribution %}
+          {% trans %}<p><strong>Powered by</strong></p>{% endtrans %}
+          <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
+          <a href="http://drupal.org" class="hide-text drupal-footer-logo">Drupal</a>
+          <div class="clearfix"></div>
+          {% endblock %}
+        </div>
       </div>
     {% endblock %}
   </div>
-
+  
   {% block footer_debug %}
     {% if g.debug %}
       {% include 'snippets/debug.html' %}
