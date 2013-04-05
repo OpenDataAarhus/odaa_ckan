@@ -4342,3 +4342,23 @@ msgstr "Dataset Leaderboard"
 #: ckan/templates/package/search.html:36
 msgid "All datasets"
 msgstr "Alle datasæts"
+
+#: ckan/templates/snippets/facet_list.html:39
+msgid "Clear All"
+msgstr "Fjern alle"
+
+#: ckan/templates/snippets/facet_list.html:58
+msgid "Show More {facet}"
+msgstr "Vis flere {facet}"
+
+#: ckan/templates/snippets/facet_list.html:60
+msgid "Show Only Popular {facet}"
+msgstr "Vis kun populær {facet}"
+
+#: ckan/templates/package/search.html:32
+msgid "datasets found for \"{query}\""
+msgstr "datasæts fundet for \"{query}\""
+
+#: ckan/templates/package/search.html:35
+msgid "Sorry no datasets found for \"{query}\""
+msgstr "Desværre blev ingen datasæt fundet for \"{query}\""
