@@ -90,8 +90,8 @@
         {% else %}
           <nav class="section account not-authed">
             <ul class="unstyled">
-              <li>{% link_for _('Log in'), controller='user', action='login' %}</li>
-              <li>{% link_for _('Register'), controller='user', action='register', class_='sub' %}</li>
+              <li>{% link_for _('Log in'), controller='user', action='login', protocol='https' %}</li>
+              <li>{% link_for _('Register'), controller='user', action='register', protocol='https', class_='sub' %}</li>
             </ul>
           </nav>
         {% endif %}

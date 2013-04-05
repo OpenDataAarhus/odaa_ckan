@@ -34,9 +34,11 @@
         </div>
         <div class="attribution attribution-second">
           {% block footer_attribution %}
-          {% trans %}<p><strong>Powered by</strong></p>{% endtrans %}
-          <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
-          <a href="http://drupal.org" class="hide-text drupal-footer-logo">Drupal</a>
+          <div style="float:right;">
+          {% trans %}<p style="text-align:right;"><strong>Powered by</strong></p>{% endtrans %}
+            <a class="hide-text ckan-footer-logo" href="http://ckan.org">CKAN</a>
+            <a href="http://drupal.org" class="hide-text drupal-footer-logo">Drupal</a>
+          </div>
           <div class="clearfix"></div>
           {% endblock %}
         </div>
