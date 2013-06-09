@@ -40,6 +40,7 @@ h1,h2,h3,h4,h5,h6,
   background-color: #EAEAEA;
   border-radius: 3px 3px 3px 3px;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  border: 6px solid #FFFFFF;
 }
 
 .hero .tags .tag:before {
@@ -48,4 +49,18 @@ h1,h2,h3,h4,h5,h6,
 
 .hero .tags .tag {
   background: none;
+  background-color: #FFF;
+  float: none;
+}
+
+.hero .tags a.tag:hover {
+  color: #E5420C;
+  text-decoration: underline;
+  border: none;
+  box-shadow: none;
+}
+
+.hero .tags a.tag:active {
+.hero .tags a.tag:visited {
+  color: #E5420C;
 }
