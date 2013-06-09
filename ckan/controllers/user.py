@@ -3,11 +3,9 @@ from urllib import quote
 
 from pylons import session, c, g, request, config
 from pylons.i18n import _
-import genshi
 
 import ckan.lib.i18n as i18n
 import ckan.lib.base as base
-import ckan.misc as misc
 import ckan.model as model
 import ckan.lib.helpers as h
 import ckan.new_authz as new_authz
@@ -73,7 +71,7 @@ class UserController(base.BaseController):
             abort(401, _('Not authorized to see this page'))
         c.user_dict = user_dict
         c.is_myself = user_dict['name'] == c.user
-        c.about_formatted = self._format_about(user_dict['about'])
+        c.about_formatted = h.render_markdown(user_dict['about'])
 
     ## end hooks
 
@@ -416,6 +414,9 @@ class UserController(base.BaseController):
         return render('user/request_reset.html')
 
     def perform_reset(self, id):
+        # FIXME 403 error for invalid key is a non helpful page
+        # FIXME We should reset the reset key when it is used to prevent
+        # reuse of the url
         context = {'model': model, 'session': model.Session,
                    'user': c.user,
                    'keep_sensitive_data': True}
@@ -473,6 +474,7 @@ class UserController(base.BaseController):
                 raise ValueError(_('The passwords you entered'
                                  ' do not match.'))
             return password1
+        raise ValueError(_('You must provide a password'))
 
     def followers(self, id=None):
         context = {'for_view': True}
@@ -570,7 +572,8 @@ class UserController(base.BaseController):
         c.dashboard_activity_stream_context = self._get_dashboard_context(
             filter_type, filter_id, q)
         c.dashboard_activity_stream = h.dashboard_activity_stream(
-            id, filter_type, filter_id, offset)
+            c.userobj.id, filter_type, filter_id, offset
+        )
 
         # Mark the user's new activities as old whenever they view their
         # dashboard page.
@@ -586,7 +589,9 @@ class UserController(base.BaseController):
         data_dict = {'id': id}
         try:
             get_action('follow_user')(context, data_dict)
-            h.flash_success(_("You are now following {0}").format(id))
+            user_dict = get_action('user_show')(context, data_dict)
+            h.flash_success(_("You are now following {0}").format(
+                user_dict['display_name']))
         except ValidationError as e:
             error_message = (e.extra_msg or e.message or e.error_summary
                              or e.error_dict)
@@ -603,7 +608,9 @@ class UserController(base.BaseController):
         data_dict = {'id': id}
         try:
             get_action('unfollow_user')(context, data_dict)
-            h.flash_success(_("You are no longer following {0}").format(id))
+            user_dict = get_action('user_show')(context, data_dict)
+            h.flash_success(_("You are no longer following {0}").format(
+                user_dict['display_name']))
         except (NotFound, NotAuthorized) as e:
             error_message = e.extra_msg or e.message
             h.flash_error(error_message)
@@ -612,13 +619,3 @@ class UserController(base.BaseController):
                              or e.error_dict)
             h.flash_error(error_message)
         h.redirect_to(controller='user', action='read', id=id)
-
-    def _format_about(self, about):
-        about_formatted = misc.MarkdownFormat().to_html(about)
-        try:
-            html = genshi.HTML(about_formatted)
-        except genshi.ParseError, e:
-            log.error('Could not print "about" field Field: %r Error: %r',
-                      about, e)
-            html = _('Error: Could not parse About text')
-        return html

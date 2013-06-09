@@ -18,6 +18,12 @@ import ckan.lib.search as search
 import ckan.new_authz
 
 from ckan.lib.plugins import lookup_group_plugin
+import ckan.plugins as plugins
+
+try:
+    from collections import OrderedDict # 2.7
+except ImportError:
+    from sqlalchemy.util import OrderedDict
 
 log = logging.getLogger(__name__)
 
@@ -60,6 +66,9 @@ class GroupController(BaseController):
 
     def _edit_template(self, group_type):
         return lookup_group_plugin(group_type).edit_template()
+
+    def _activity_template(self, group_type):
+        return lookup_group_plugin(group_type).activity_template()
 
     def _admins_template(self, group_type):
         return lookup_group_plugin(group_type).admins_template()
@@ -148,7 +157,7 @@ class GroupController(BaseController):
         context = {'model': model, 'session': model.Session,
                    'user': c.user or c.author,
                    'schema': self._db_to_form_schema(group_type=group_type),
-                   'for_view': True, 'extras_as_string': True}
+                   'for_view': True}
         data_dict = {'id': id}
         # unicode format (decoded from utf8)
         q = c.q = request.params.get('q', '')
@@ -162,16 +171,12 @@ class GroupController(BaseController):
             abort(401, _('Unauthorized to read group %s') % id)
 
         # Search within group
-        q += ' groups: "%s"' % c.group_dict.get('name')
+        if c.group_dict.get('is_organization'):
+            q += ' owner_org: "%s"' % c.group_dict.get('id')
+        else:
+            q += ' groups: "%s"' % c.group_dict.get('name')
 
-        try:
-            description_formatted = ckan.misc.MarkdownFormat().to_html(
-            c.group_dict.get('description', ''))
-            c.description_formatted = genshi.HTML(description_formatted)
-        except Exception, e:
-            error_msg = "<span class='inline-warning'>%s</span>" %\
-                        _("Cannot render description")
-            c.description_formatted = genshi.HTML(error_msg)
+        c.description_formatted = h.render_markdown(c.group_dict.get('description'))
 
         context['return_query'] = True
 
@@ -238,10 +243,37 @@ class GroupController(BaseController):
                 fq = ''
                 context['ignore_capacity_check'] = True
 
+            facets = OrderedDict()
+
+            default_facet_titles = {'groups': _('Groups'),
+                              'tags': _('Tags'),
+                              'res_format': _('Formats'),
+                              'license': _('Licence'), }
+
+            for facet in g.facets:
+                if facet in default_facet_titles:
+                    facets[facet] = default_facet_titles[facet]
+                else:
+                    facets[facet] = facet
+
+            # Facet titles
+            for plugin in plugins.PluginImplementations(plugins.IFacets):
+                if self.group_type == 'organization':
+                    facets = plugin.organization_facets(
+                        facets, self.group_type, None)
+                else:
+                    facets = plugin.group_facets(
+                        facets, self.group_type, None)
+
+            if 'capacity' in facets and (self.group_type != 'organization' or not user_member_of_orgs):
+                del facets['capacity']
+
+            c.facet_titles = facets
+
             data_dict = {
                 'q': q,
                 'fq': fq,
-                'facet.field': g.facets,
+                'facet.field': facets.keys(),
                 'rows': limit,
                 'sort': sort_by,
                 'start': (page - 1) * limit,
@@ -264,10 +296,6 @@ class GroupController(BaseController):
               'Use `c.search_facets` instead.')
 
             c.search_facets = query['search_facets']
-            c.facet_titles = {'groups': _('Groups'),
-                              'tags': _('Tags'),
-                              'res_format': _('Formats'),
-                              'license': _('Licence'), }
             c.search_facets_limits = {}
             for facet in c.facets.keys():
                 limit = int(request.params.get('_%s_limit' % facet, 10))
@@ -290,7 +318,7 @@ class GroupController(BaseController):
             data['type'] = group_type
 
         context = {'model': model, 'session': model.Session,
-                   'user': c.user or c.author, 'extras_as_string': True,
+                   'user': c.user or c.author,
                    'save': 'save' in request.params,
                    'parent': request.params.get('parent', None)}
         try:
@@ -315,7 +343,7 @@ class GroupController(BaseController):
     def edit(self, id, data=None, errors=None, error_summary=None):
         group_type = self._get_group_type(id.split('@')[0])
         context = {'model': model, 'session': model.Session,
-                   'user': c.user or c.author, 'extras_as_string': True,
+                   'user': c.user or c.author,
                    'save': 'save' in request.params,
                    'for_edit': True,
                    'parent': request.params.get('parent', None)
@@ -456,7 +484,10 @@ class GroupController(BaseController):
         try:
             if request.method == 'POST':
                 self._action('group_delete')(context, {'id': id})
-                h.flash_notice(_('Group has been deleted.'))
+                if self.group_type == 'organization':
+                    h.flash_notice(_('Organization has been deleted.'))
+                else:
+                    h.flash_notice(_('Group has been deleted.'))
                 self._redirect_to(controller='group', action='index')
             c.group_dict = self._action('group_show')(context, {'id': id})
         except NotAuthorized:
@@ -494,8 +525,10 @@ class GroupController(BaseController):
             else:
                 user = request.params.get('user')
                 if user:
-                    user= model.Session.query(model.User).get(user)
-                    c.user_name = user.name
+                    c.user_dict = get_action('user_show')(context, {'id': user})
+                    c.user_role = ckan.new_authz.users_role_for_group_or_org(id, user) or 'member'
+                else:
+                    c.user_role = 'member'
                 c.group_dict = self._action('group_show')(context, {'id': id})
                 c.roles = self._action('member_roles_list')(context, {})
         except NotAuthorized:
@@ -550,8 +583,7 @@ class GroupController(BaseController):
 
         context = {'model': model, 'session': model.Session,
                    'user': c.user or c.author,
-                   'schema': self._form_to_db_schema(),
-                   'extras_as_string': True}
+                   'schema': self._db_to_form_schema()}
         data_dict = {'id': id}
         try:
             c.group_dict = self._action('group_show')(context, data_dict)
@@ -631,7 +663,8 @@ class GroupController(BaseController):
         c.group_activity_stream = get_action('group_activity_list_html')(
                 context, {'id': c.group_dict['id'], 'offset': offset})
 
-        return render('group/activity_stream.html')
+        #return render('group/activity_stream.html')
+        return render(self._activity_template(c.group_dict['type']))
 
     def follow(self, id):
         '''Start following this group.'''
@@ -641,7 +674,9 @@ class GroupController(BaseController):
         data_dict = {'id': id}
         try:
             get_action('follow_group')(context, data_dict)
-            h.flash_success(_("You are now following {0}").format(id))
+            group_dict = get_action('group_show')(context, data_dict)
+            h.flash_success(_("You are now following {0}").format(
+                group_dict['title']))
         except ValidationError as e:
             error_message = (e.extra_msg or e.message or e.error_summary
                     or e.error_dict)
@@ -658,7 +693,9 @@ class GroupController(BaseController):
         data_dict = {'id': id}
         try:
             get_action('unfollow_group')(context, data_dict)
-            h.flash_success(_("You are no longer following {0}").format(id))
+            group_dict = get_action('group_show')(context, data_dict)
+            h.flash_success(_("You are no longer following {0}").format(
+                group_dict['title']))
         except ValidationError as e:
             error_message = (e.extra_msg or e.message or e.error_summary
                     or e.error_dict)

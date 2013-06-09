@@ -1,6 +1,11 @@
 import sys
 from logging import getLogger
 
+try:
+    from collections import OrderedDict # 2.7
+except ImportError:
+    from sqlalchemy.util import OrderedDict
+
 from pylons import config, c
 from pylons.i18n import _
 from paste.deploy.converters import asbool
@@ -14,6 +19,9 @@ log = getLogger(__name__)
 # be accessed directly
 class AuthFunctions:
     _functions = {}
+
+def clear_auth_functions_cache():
+    AuthFunctions._functions.clear()
 
 def is_sysadmin(username):
     ''' returns True is username is a sysadmin '''
@@ -41,6 +49,7 @@ def get_group_or_org_admin_ids(group_id):
     q = model.Session.query(model.Member) \
         .filter(model.Member.group_id == group_id) \
         .filter(model.Member.table_name == 'user') \
+        .filter(model.Member.state == 'active') \
         .filter(model.Member.capacity == 'admin')
     return [a.table_id for a in q.all()]
 
@@ -65,11 +74,11 @@ def is_authorized(action, context, data_dict=None):
         raise ValueError(_('Authorization function not found: %s' % action))
 
 # these are the permissions that roles have
-ROLE_PERMISSIONS = {
-    'admin': ['admin'],
-    'editor': ['read', 'delete_dataset', 'create_dataset', 'update_dataset'],
-    'member': ['read'],
-}
+ROLE_PERMISSIONS = OrderedDict([
+    ('admin', ['admin']),
+    ('editor', ['read', 'delete_dataset', 'create_dataset', 'update_dataset']),
+    ('member', ['read']),
+])
 
 def _trans_role_admin():
     return _('Admin')
@@ -87,10 +96,17 @@ def trans_role(role):
 
 def roles_list():
     ''' returns list of roles for forms '''
-    out = []
+    roles = []
     for role in ROLE_PERMISSIONS:
-        out.append(dict(text=trans_role(role), value=role))
-    return out
+        roles.append(dict(text=trans_role(role), value=role))
+    return roles
+
+def roles_trans():
+    ''' return dict of roles with translation '''
+    roles = {}
+    for role in ROLE_PERMISSIONS:
+        roles[role] = trans_role(role)
+    return roles
 
 
 def get_roles_with_permission(permission):
@@ -120,6 +136,7 @@ def has_user_permission_for_group_or_org(group_id, user_name, permission):
     q = model.Session.query(model.Member) \
         .filter(model.Member.group_id == group_id) \
         .filter(model.Member.table_name == 'user') \
+        .filter(model.Member.state == 'active') \
         .filter(model.Member.table_id == user_id)
     # see if any role has the required permission
     # admin permission allows anything for the group
@@ -128,6 +145,27 @@ def has_user_permission_for_group_or_org(group_id, user_name, permission):
         if 'admin' in perms or permission in perms:
             return True
     return False
+
+
+def users_role_for_group_or_org(group_id, user_name):
+    ''' Check if the user role for the group '''
+    if not group_id:
+        return None
+    group_id = model.Group.get(group_id).id
+
+    user_id = get_user_id_for_username(user_name, allow_none=True)
+    if not user_id:
+        return None
+    # get any roles the user has for the group
+    q = model.Session.query(model.Member) \
+        .filter(model.Member.group_id == group_id) \
+        .filter(model.Member.table_name == 'user') \
+        .filter(model.Member.state == 'active') \
+        .filter(model.Member.table_id == user_id)
+    # return the first role we find
+    for row in q.all():
+        return row.capacity
+    return None
 
 def has_user_permission_for_some_org(user_name, permission):
     ''' Check if the user has the given permission for the group '''
@@ -141,6 +179,7 @@ def has_user_permission_for_some_org(user_name, permission):
     # get any groups the user has with the needed role
     q = model.Session.query(model.Member) \
         .filter(model.Member.table_name == 'user') \
+        .filter(model.Member.state == 'active') \
         .filter(model.Member.capacity.in_(roles)) \
         .filter(model.Member.table_id == user_id)
     group_ids = []
@@ -177,7 +216,7 @@ def get_user_id_for_username(user_name, allow_none=False):
 def _get_auth_function(action, profile=None):
     from pylons import config
 
-    if AuthFunctions._functions:
+    if action in AuthFunctions._functions:
         return AuthFunctions._functions.get(action)
 
     # Otherwise look in all the plugins to resolve all possible

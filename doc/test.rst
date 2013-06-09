@@ -12,22 +12,28 @@ Installing Additional Dependencies
 ----------------------------------
 
 Some additional dependencies are needed to run the tests. Make sure you've
-created a config file at ``~/pyenv/ckan/development.ini``, then activate your
-virtual environment::
+created a config file at |development.ini|, then activate your
+virtual environment:
 
-    . ~/pyenv/bin/activate
+.. parsed-literal::
+
+    |activate|
 
 Install nose and other test-specific CKAN dependencies into your virtual
-environment::
+environment:
 
-    pip install -r ~/pyenv/src/ckan/pip-requirements-test.txt
+.. parsed-literal::
+
+    pip install -r |virtualenv|/src/ckan/pip-requirements-test.txt
 
 Testing with SQLite
 -------------------
 
-To run the CKAN tests using SQLite as the database library::
+To run the CKAN tests using SQLite as the database library:
 
-    cd ~/pyenv/src/ckan
+.. parsed-literal::
+
+    cd |virtualenv|/src/ckan
     nosetests --ckan ckan
 
 You *must* run the tests from the CKAN directory as shown above, otherwise the
@@ -57,9 +63,6 @@ Or to run the CKAN tests and the core extensions tests together::
 
 Testing with PostgreSQL
 -----------------------
-
-First, make sure you have specified a PostgreSQL database with the
-``sqlalchemy.url`` parameter in your ``development.ini`` file.
 
 CKAN's default nose configuration file (``test.ini``) specifies SQLite as the
 database library (it also sets ``faster_db_test_hacks``). To run the tests more
@@ -114,4 +117,50 @@ is how the database is created and upgraded in production.
 Common error messages
 ---------------------
 
-Consult :doc:`common-error-messages` for solutions to a range of setup problems.
+ConfigError
+```````````
+
+``nose.config.ConfigError: Error reading config file 'setup.cfg': no such option 'with-pylons'``
+   This error can result when you run nosetests for two reasons:
+
+   1. Pylons nose plugin failed to run. If this is the case, then within a couple of lines of running `nosetests` you'll see this warning: `Unable to load plugin pylons` followed by an error message. Fix the error here first`.
+
+   2. The Python module 'Pylons' is not installed into you Python environment. Confirm this with::
+
+        python -c "import pylons"
+
+OperationalError
+````````````````
+
+``OperationalError: (OperationalError) no such function: plainto_tsquery ...``
+   This error usually results from running a test which involves search functionality, which requires using a PostgreSQL database, but another (such as SQLite) is configured. The particular test is either missing a `@search_related` decorator or there is a mixup with the test configuration files leading to the wrong database being used.
+
+nosetests
+`````````
+
+``nosetests: error: no such option: --ckan``
+   Nose is either unable to find ckan/ckan_nose_plugin.py in the python environment it is running in, or there is an error loading it. If there is an error, this will surface it::
+
+         nosetests --version
+
+   There are a few things to try to remedy this:
+
+   Commonly this is because the nosetests isn't running in the python environment. You need to have nose actually installed in the python environment. To see which you are running, do this::
+
+         which nosetests
+
+   If you have activated the environment and this still reports ``/usr/bin/nosetests`` then you need to::
+
+         pip install --ignore-installed nose
+
+   If ``nose --version`` still fails, ensure that ckan is installed in your environment:
+
+   .. parsed-literal::
+
+         cd |virtualenv|/src/ckan
+         python setup.py develop
+
+   One final check - the version of nose should be at least 1.0. Check with::
+
+         pip freeze | grep -i nose
+

@@ -18,21 +18,21 @@ def owner_org_validator(key, data, errors, context):
 
     value = data.get(key)
 
-    if value is missing or value is None:
+    if value is missing or not value:
         if not ckan.new_authz.check_config_permission('create_unowned_dataset'):
-            raise Invalid('A group must be supplied')
+            raise Invalid(_('A organization must be supplied'))
         data.pop(key, None)
         raise StopOnError
 
     model = context['model']
     group = model.Group.get(value)
     if not group:
-        raise Invalid('Group does not exist')
+        raise Invalid(_('Organization does not exist'))
     group_id = group.id
     user = context['user']
     user = model.User.get(user)
     if not(user.sysadmin or user.is_in_group(group_id)):
-        raise Invalid('You cannot add a dataset to this group')
+        raise Invalid(_('You cannot add a dataset to this organization'))
     data[key] = group_id
 
 
@@ -313,7 +313,9 @@ def duplicate_extras_key(key, data, errors, context):
     for extra_key in set(extras_keys):
         extras_keys.remove(extra_key)
     if extras_keys:
-        errors[key].append(_('Duplicate key "%s"') % extras_keys[0])
+        key_ = ('extras_validation',)
+        assert key_ not in errors
+        errors[key_] = [_('Duplicate key "%s"') % extras_keys[0]]
 
 def group_name_validator(key, data, errors, context):
     model = context['model']

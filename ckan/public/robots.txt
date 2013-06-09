@@ -2,7 +2,6 @@ User-agent: *
 Disallow: /dataset/rate/
 Disallow: /revision/
 Disallow: /dataset/*/history
-Disallow: /dataset/api_data/
 Disallow: /api/
 
 User-Agent: *

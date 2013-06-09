@@ -3,10 +3,12 @@
 import logging
 import time
 from threading import Lock
+import re
 
 from paste.deploy.converters import asbool
 from pylons import config
 
+import ckan
 import ckan.model as model
 
 log = logging.getLogger(__name__)
@@ -45,7 +47,7 @@ config_details = {
     'ckan.api_url': {},
 
     # split string
-    'search.facets': {'default': 'groups tags res_format license',
+    'search.facets': {'default': 'organization groups tags res_format license_id',
                       'type': 'split',
                       'name': 'facets'},
     'package_hide_extras': {'type': 'split'},
@@ -55,6 +57,7 @@ config_details = {
     'openid_enabled': {'default': 'true', 'type' : 'bool'},
     'debug': {'default': 'false', 'type' : 'bool'},
     'ckan.debug_supress_header' : {'default': 'false', 'type' : 'bool'},
+    'ckan.tracking_enabled' : {'default': 'false', 'type' : 'bool'},
 
     # int
     'ckan.datasets_per_page': {'default': '20', 'type': 'int'},
@@ -107,9 +110,15 @@ def reset():
             value = model.get_system_info(key)
         else:
             value = None
+        config_value = config.get(key)
+        # sort encodeings if needed
+        if isinstance(config_value, str):
+            try:
+                config_value = config_value.decode('utf-8')
+            except UnicodeDecodeError:
+                config_value = config_value.decode('latin-1')
         # we want to store the config the first time we get here so we can
         # reset them if needed
-        config_value = config.get(key)
         if key not in _CONFIG_CACHE:
             _CONFIG_CACHE[key] = config_value
         if value is not None:
@@ -172,6 +181,14 @@ class _Globals(object):
                 self._mutex.release()
 
     def _init(self):
+
+        self.ckan_version = ckan.__version__
+        self.ckan_base_version = re.sub('[^0-9\.]', '', self.ckan_version)
+        if self.ckan_base_version == self.ckan_version:
+            self.ckan_doc_version = 'ckan-{0}'.format(self.ckan_version)
+        else:
+            self.ckan_doc_version = 'latest'
+
         # process the config_details to set globals
         for name, options in config_details.items():
             if 'name' in options:
