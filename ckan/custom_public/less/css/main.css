@@ -8742,10 +8742,13 @@ body {
   border-style: solid;
   border-width: 0;
 }
-.container,
+* .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
   width: 1060px;
+}
+.group-listing {
+  margin-left: 0px;
 }
 .beta-logo {
   background-image: url("../img/beta-ribbon.png");
@@ -8859,18 +8862,6 @@ body {
 .site-footer small {
   color: #000000;
 }
-.footer-links {
-  float: left;
-  margin-left: 20px;
-  width: 160px;
-  margin-left: 0;
-}
-.footer-links li {
-  display: block;
-  width: 40%;
-  margin-right: 5%;
-  margin-bottom: 5px;
-}
 .site-footer,
 .site-footer label,
 .site-footer small {
@@ -8881,8 +8872,10 @@ body {
 }
 #mc_embed_signup {
   float: left;
-  margin-left: 20px;
-  width: 340px;
+  /*margin-left: 20px;*/
+
+  /* width: 340px;*/
+
 }
 .attribution {
   margin-bottom: 20px;
@@ -8896,8 +8889,45 @@ body {
 .footer-second {
   float: left;
   margin-left: 20px;
-  width: 520px;
+  width: 500px;
 }
+/************************************************************** */
+.footer-links {
+  float: left;
+  margin-left: 20px;
+  width: 160px;
+  margin-left: 0;
+}
+.footer-links li {
+  display: block;
+  width: 80%;
+  margin-right: 5%;
+  margin-bottom: 5px;
+}
+a.tag:hover {
+  text-decoration: none;
+  color: #F30808;
+  background-color: #FFFFFF;
+  border: 1px solid #235767;
+  -webkit-box-shadow: inset 0 1px 0 #3d97b3;
+  -moz-box-shadow: inset 0 1px 0 #3d97b3;
+  box-shadow: inset 0 1px 0 #3d97b3;
+}
+/* 
+.footer-links {
+float: left;
+margin-left: 20px;
+width: 240px;
+margin-left: 0;
+}
+.footer-links li {
+display: block;
+width: 49%;
+margin-right: 5%;
+margin-bottom: 5px;
+}
+
+*/
 .award-smart-city-footer-logo {
   background: url("/sites/odaa.dk/themes/odaa/img/it-award-smartcity-2013.png") no-repeat;
   float: right;
@@ -8905,7 +8935,7 @@ body {
   width: 267px;
 }
 .beta-logo {
-  background-image: url("../img/beta-ribbon.png");
+  background-image: url("/img/beta-ribbon.png");
   background-size: cover;
   background-repeat: no-repeat;
   position: absolute;
