@@ -1,0 +1,11 @@
+setup.py
+ckanext/__init__.py
+ckanext/searchpackage/__init__.py
+ckanext/searchpackage/plugin.py
+ckanext_searchpackage.egg-info/PKG-INFO
+ckanext_searchpackage.egg-info/SOURCES.txt
+ckanext_searchpackage.egg-info/dependency_links.txt
+ckanext_searchpackage.egg-info/entry_points.txt
+ckanext_searchpackage.egg-info/namespace_packages.txt
+ckanext_searchpackage.egg-info/not-zip-safe
+ckanext_searchpackage.egg-info/top_level.txt
