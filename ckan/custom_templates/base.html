@@ -18,7 +18,7 @@
         {{ g.site_title }}
       {%- endblock -%}
     </title>
-    <link type="text/css" rel="stylesheet" href="/sites/odaa.dk/themes/odaa/css/odaa.styles.css" media="all" />
+    <link type="text/css" rel="stylesheet" href="http://dev.odaa.dk/sites/odaa.dk/themes/odaa/css/odaa.styles.css" media="all" />
   </head>
 
   <body class="left-sidebar" {% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %}>
