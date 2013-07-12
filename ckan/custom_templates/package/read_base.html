@@ -1,0 +1,20 @@
+<div class="page--content-wrapper">
+  <ul class="dataset--tabs">
+    {% block page_header_tabs %}
+      {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
+      {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
+      {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }}
+    {% endblock %}
+ </ul>
+  {% block primary_content_inner %}{% endblock %}
+<div class="secondary-content">
+  {% block secondary_content %}
+</div>
+
+{% snippet 'snippets/organization, organization=c.group_dict %}
+
+{% snippet 'snippets/group, group=c.group_dict %}
+
+{% snippet 'snippets/social %}
+
+{% snippet 'snippets/license %}
