@@ -3,25 +3,26 @@
 {% set pkg = c.pkg_dict %}
 
 {% block primary_content_inner %}
-<section class="page--content">
-  <h1 class="page--title">{{ pkg.title or pkg.name }}</h1>
-  {% if c.pkg_notes_formatted %}
-    <div class="notes embedded-content">
-      {{ c.pkg_notes_formatted }}
-    </div>
-  {% endif %}
-  
-</section>
+  <section class="page--content">
+    <h1 class="page--title">{{ pkg.title or pkg.name }}</h1>
+    {% if c.pkg_notes_formatted %}
+      <div class="notes embedded-content">
+        {{ c.pkg_notes_formatted }}
+      </div>
+    {% endif %}
+
+  </section>
+
+  {% block package_resources %}
+    {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
+  {% endblock %}
+
+  {% block package_tags %}
+    {% snippet "package/snippets/tags.html", tags=pkg.tags %}
+  {% endblock %}
+
+  {% block package_additional_info %}
+    {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
+  {% endblock %}
+
 {% endblock %}  
-
-{% block package_resources %}
-  {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}
-{% endblock %}
-
-{% block package_tags %}
-  {% snippet "package/snippets/tags.html", tags=pkg.tags %}
-{% endblock %}
-
-{% block package_additional_info %}
-  {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
-{% endblock %}

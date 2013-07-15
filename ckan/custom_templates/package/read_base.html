@@ -12,6 +12,7 @@
       </ul>
 
       {% block primary_content_inner %}{% endblock %}
+    </div>
   </div>
 {% endblock %}
 
@@ -23,11 +24,11 @@
 
     {% block package_groups %}
       {% if pkg.groups %}
-        <div class="module module-narrow">
-          <h2 class="module-heading"><i class="icon-folder-open"></i> {{ _('Groups') }}</h2>
-          <ul class="nav nav-simple">
+        <div class="spotbox--inner">
+          <h3 class="spotbox--header"><i class="icon-folder-open"></i> {{ _('Groups') }}</h3>
+          <ul class="spotbox--list">
             {% for group in pkg.groups %}
-              <li class="nav-item">
+              <li class="spotbox--list-item last">
                 <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
                   {{ group.title or group.name }}
                 </a>
