@@ -1,5 +1,7 @@
 {% extends "package/read_base.html" %}
 
+{% set pkg = c.pkg_dict %}
+
 {% block primary_content_inner %}
 <section class="page--content">
   <h1 class="page--title">{{ pkg.title or pkg.name }}</h1>
@@ -8,7 +10,6 @@
       {{ c.pkg_notes_formatted }}
     </div>
   {% endif %}
-  READ
   
 </section>
 {% endblock %}  

@@ -5,18 +5,19 @@
         <h3 class="spotbox--header"><i class="icon-medium icon-lock"></i> {{ _('License') }}</h3>
         <p>
   {% endif %}
-    {% if 'license_url' in pkg_dict %}
-      <a href="{{ pkg_dict.license_url }}" rel="dc:rights">{{ pkg_dict.license_title }}</a>
-    {% else %}
-      <span property="dc:rights">{{ pkg_dict.license_title }}</span>
+  {% if 'license_url' in pkg_dict %}
+    <a href="{{ pkg_dict.license_url }}" rel="dc:rights">{{ pkg_dict.license_title }}</a>
+  {% else %}
+    <span property="dc:rights">{{ pkg_dict.license_title }}</span>
+  {% endif %}
+  {% if not text_only %}
+    {% if pkg_dict.isopen %}
+      <a title="{{ _('This dataset satisfies the Open Definition.') }}" href="http://opendefinition.org/okd/"><img alt="[Open Data]" src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png" class="open-data"></a>
     {% endif %}
-    {% if not text_only %}
-      {% if pkg_dict.isopen %}
-        <a title="{{ _('This dataset satisfies the Open Definition.') }}" href="http://opendefinition.org/okd/"><img alt="[Open Data]" src="http://assets.okfn.org/images/ok_buttons/od_80x15_blue.png" class="open-data"></a>
-      {% endif %}
-    </p>
+        </p>
     </div>
   </div>
-  {% elif text_only %}
-    {{ _('No License Provided') }}
+    {% elif text_only %}
+      {{ _('No License Provided') }}
+  {% endif %}
 {% endif %}

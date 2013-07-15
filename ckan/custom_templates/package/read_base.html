@@ -16,11 +16,11 @@
     {% block secondary_content %}{% endblock %}
   </div>
 
-  {% snippet 'snippets/organization', organization=c.group_dict %}
+  {% snippet 'snippets/organization.html', organization=c.group_dict %}
 
-  {% snippet 'snippets/group', group=c.group_dict %}
+  {% snippet 'snippets/group.html', group=c.group_dict %}
 
-  {% snippet 'snippets/social' %}
+  {% snippet 'snippets/social.html' %}
 
-  {% snippet 'snippets/license' %}
+  {% snippet 'snippets/license.html' %}
 {% endblock %}
