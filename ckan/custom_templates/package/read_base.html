@@ -11,16 +11,35 @@
    </ul>
 
       {% block primary_content_inner %}{% endblock %}
-
+{% endblock %}
   <div class="secondary-content">
-    {% block secondary_content %}{% endblock %}
-  </div>
-
-  {% snippet 'snippets/organization.html', organization=c.group_dict %}
-
-  {% snippet 'snippets/group.html', group=c.group_dict %}
+{% block secondary_content %}
+  {% if pkg.organization %}
+    {% snippet 'snippets/organization.html', organization=pkg.organization %}
+  {% endif %}
+  
+  {% block package_groups %}
+    {% if pkg.groups %}
+      <div class="module module-narrow">
+        <h2 class="module-heading"><i class="icon-folder-open"></i> {{ _('Groups') }}</h2>
+        <ul class="nav nav-simple">
+          {% for group in pkg.groups %}
+            <li class="nav-item">
+              <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
+                {{ group.title or group.name }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+  {% endblock %}
 
   {% snippet 'snippets/social.html' %}
 
-  {% snippet 'snippets/license.html' %}
+  {% block package_license %}
+    {% snippet "snippets/license.html", pkg_dict=pkg %}
+  {% endblock %}
+  
+  </div>
 {% endblock %}
