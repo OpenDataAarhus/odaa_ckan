@@ -1,5 +1,6 @@
 {% extends "package/read_base.html" %}
 
+{% block primary_content_inner %}
 <section class="page--content">
   <h1 class="page--title">{{ pkg.title or pkg.name }}</h1>
   {% if c.pkg_notes_formatted %}
@@ -7,10 +8,10 @@
       {{ c.pkg_notes_formatted }}
     </div>
   {% endif %}
-
-  {% block primary_content_inner %}{% endblock %}  
-
+  READ
+  
 </section>
+{% endblock %}  
 
 {% block package_resources %}
   {% snippet "package/snippets/resources_list.html", pkg=pkg, resources=pkg.resources %}

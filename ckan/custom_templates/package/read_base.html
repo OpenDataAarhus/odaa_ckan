@@ -1,24 +1,26 @@
 {% extends "package/base.html" %}
 
-<div class="page--content-wrapper">
-  <ul class="dataset--tabs">
-    {% block page_header_tabs %}
-      {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
-      {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
-      {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }}
-    {% endblock %}
- </ul>
-  {% block primary_content %}
-    {% block primary_content_inner %}{% endblock %}
-  {% endblock %}
-<div class="secondary-content">
-  {% block secondary_content %}{% endblock %}
-</div>
+{% block primary_content %}
+  <div class="page--content-wrapper">
+    <ul class="dataset--tabs">
+      {% block page_header_tabs %}
+        {{ h.build_nav_icon('dataset_read', _('Dataset'), id=pkg.name) }}
+        {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
+        {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }}
+      {% endblock %}
+   </ul>
 
-{% snippet 'snippets/organization', organization=c.group_dict %}
+      {% block primary_content_inner %}{% endblock %}
 
-{% snippet 'snippets/group', group=c.group_dict %}
+  <div class="secondary-content">
+    {% block secondary_content %}{% endblock %}
+  </div>
 
-{% snippet 'snippets/social' %}
+  {% snippet 'snippets/organization', organization=c.group_dict %}
 
-{% snippet 'snippets/license' %}
+  {% snippet 'snippets/group', group=c.group_dict %}
+
+  {% snippet 'snippets/social' %}
+
+  {% snippet 'snippets/license' %}
+{% endblock %}
