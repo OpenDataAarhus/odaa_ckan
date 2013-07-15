@@ -20,6 +20,9 @@
       {%- endblock -%}
     </title>
     <link type="text/css" rel="stylesheet" href="http://dev.odaa.dk/sites/odaa.dk/themes/odaa/css/odaa.styles.css" media="all" />
+    <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script src="/sites/odaa.dk/themes/odaa/templates/mockups/pure_min.js"></script>
+    <script src="/sites/odaa.dk/themes/odaa/templates/mockups/comment.js"></script>
   </head>
 
   <body class="left-sidebar" {% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %}>
