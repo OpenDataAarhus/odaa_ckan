@@ -8,7 +8,9 @@
       {{ h.build_nav_icon('related_list', _('Related'), id=pkg.name) }}
     {% endblock %}
  </ul>
-  {% block primary_content_inner %}{% endblock %}
+  {% block primary_content %}
+    {% block primary_content_inner %}{% endblock %}
+  {% endblock %}
 <div class="secondary-content">
   {% block secondary_content %}{% endblock %}
 </div>
