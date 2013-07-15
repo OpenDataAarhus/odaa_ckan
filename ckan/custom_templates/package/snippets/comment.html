@@ -1,0 +1,48 @@
+<section class="comments">
+  <h2 class="section-title">{{ _('Comment and debate') }}</h2>
+  <p>{{ _('Join the debate! Remember to keep a sober tone so we can have a constructive debate.') }}</p>
+  <div class="comments--list-actions">
+    <a href="#" class="list--action-sort-latest active"><i class="icon-ok"></i>Sortér: Seneste</a>
+    <a href="#" class="list--action-sort-hot"><i class="icon-thumbs-up-alt"></i>Sortér: Bedste</a>
+    <a href="#postcomment" class="list--action-create"><i class="icon-comment-alt"></i>{{ _('Write a comment') }}</a>
+  </div>
+  <div class="comments--wrapper">
+    <ul class="comments--list">
+      <li class="comments--list-item">
+        <a href="#" class="comments--list-image"><img width="30" height="30" src="//gravatar.com/avatar/f9879d71855b5ff21e4963273a886bfc?s=30&amp;d=identicon"></a>
+        <h3 class="comments--list-author"><a href="#">Name</a></h3>
+        <a href="#commentlink" class="comments--list-posted">20. juli 2013 @ 14:57</a>
+        <div class="comments--list-content">
+          <p>Maecenas faucibus mollis interdum. Curabitur blandit tempus porttitor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+          <p>Nullam quis risus eget urna mollis ornare vel eu leo. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</p>
+          <div class="comments--list-item-actions">
+            <a href="#" class="comments--list-quote"><i class="icon-quote-left"></i>Quote</a>
+            <div class="comments--list-rate-up"><a href="#"><i class="icon-thumbs-up-alt"></i></a>+1</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <section class="comments--post-comment-wrapper">
+      <h2 class="comments--post-comment-header"><a name="postcomment">{{ _('Write a comment') }}</a></h2>
+      <div class="comments--post-comment">
+        <form>
+          <div class="comments--post-field-wrapper">
+            <label class="comments--post-label">{{ _('Username') }}</label>
+            <p>{{ _('Username') }}</p>
+          </div>
+          <div class="comments--post-field-wrapper">
+            <label class="comments--post-label">{{ _('E-mail') }}</label>
+            <p>email@example.com</p>
+          </div>
+          <div class="comments--post-field-wrapper">
+            <label class="comments--post-label">{ _('Comment') }}</label>
+            <textarea placeholder="{ _('Write your comment') }}" rows="6"></textarea>
+          </div>
+          <div class="comments--post-comment-actions">
+            <input type="submit" value="{ _('Post comment') }}" class="button">
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</section>
