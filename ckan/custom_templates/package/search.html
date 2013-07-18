@@ -1,33 +1,35 @@
 {% extends "page.html" %}
 {% import 'macros/form.html' as form %}
 
-<iv class="primary-content">
-  <div class="page--content-wrapper">
-    <section class="page--content">
-      <h1 class="page--title">{{ _('Find dataset') }}</h1>
-    </section>
-    <div class="search-form--content-block">
-      <form action="/dataset" method="get">
-        <label class="search-form--content-block--label">{{ _('Search in datasets') }}/label>
-        <input name="q" type="text" placeholder="F.eks. parkering, bygninger eller lignende" class="search-form--content-block--input" />
-        <input type="submit" class="search-form--content-block--button" value="Søg" />
-      </form>
+{% block primary_content %}
+  <div class="primary-content">
+    <div class="page--content-wrapper">
+      <section class="page--content">
+        <h1 class="page--title">{{ _('Find dataset') }}</h1>
+      </section>
+      <div class="search-form--content-block">
+        <form action="/dataset" method="get">
+          <label class="search-form--content-block--label">{{ _('Search in datasets') }}/label>
+          <input name="q" type="text" placeholder="F.eks. parkering, bygninger eller lignende" class="search-form--content-block--input" />
+          <input type="submit" class="search-form--content-block--button" value="Søg" />
+        </form>
+      </div>
+      <div class="dataset--list-actions">
+        {{ h.snippet('snippets/sort_by.html', sort=c.sort_by_selected) }}
+     </div>
+      <section class="dataset--list-wrapper">
+        {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
+        {{ c.page.pager(q=c.q) }}
+        <!--<ul class="pager">
+          <li class="pager-previous first">&nbsp;</li>
+          <li class="pager-current">1</li>
+          <li class="pager-item"><a href="#">2</a></li>
+          <li class="pager-next last"><a href="#"><i class="icon-angle-right"></i></a></li>
+        </ul>-->
+      </section>
     </div>
-    <div class="dataset--list-actions">
-      {{ h.snippet('snippets/sort_by.html', sort=c.sort_by_selected) }}
-   </div>
-    <section class="dataset--list-wrapper">
-      {{ h.snippet('snippets/package_list.html', packages=c.page.items) }}
-      {{ c.page.pager(q=c.q) }}
-      <!--<ul class="pager">
-        <li class="pager-previous first">&nbsp;</li>
-        <li class="pager-current">1</li>
-        <li class="pager-item"><a href="#">2</a></li>
-        <li class="pager-next last"><a href="#"><i class="icon-angle-right"></i></a></li>
-      </ul>-->
-    </section>
   </div>
-</div>
+{% endblock %}
 
 {% block secondary_content %}
   {% for facet in c.facet_titles %}
