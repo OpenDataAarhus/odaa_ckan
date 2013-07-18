@@ -9,7 +9,7 @@
       </section>
       <div class="search-form--content-block">
         <form action="/dataset" method="get">
-          <label class="search-form--content-block--label">{{ _('Search in datasets') }}/label>
+          <label class="search-form--content-block--label">{{ _('Search in datasets') }}</label>
           <input name="q" type="text" placeholder="F.eks. parkering, bygninger eller lignende" class="search-form--content-block--input" />
           <input type="submit" class="search-form--content-block--button" value="Søg" />
         </form>
@@ -32,7 +32,9 @@
 {% endblock %}
 
 {% block secondary_content %}
-  {% for facet in c.facet_titles %}
-      {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
-  {% endfor %}
+  <div class="secondary-content">
+    {% for facet in c.facet_titles %}
+        {{ h.snippet('snippets/facet_list.html', title=c.facet_titles[facet], name=facet) }}
+    {% endfor %}
+  </div>
 {% endblock %}
