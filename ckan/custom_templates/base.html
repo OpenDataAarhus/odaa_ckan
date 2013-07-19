@@ -27,11 +27,10 @@
     <script>
       (function($) {
         $.ajax({
-          url: 'node/1?regions=navigation',
+          url: '?regions=navigation',
         }).done(function (data) {
           var menu = $('.odaa-main-menu');
-          menu.before(data);
-          menu.remove();
+          menu.remove().before(data);
           $('.context-block-region').hide();
         }); 
       })(jQuery);
