@@ -30,7 +30,8 @@
           url: '/?regions=navigation',
         }).done(function (data) {
           var menu = $('.odaa-main-menu');
-          menu.remove().before(data);
+          menu.before(data);
+          menu.remove();
           $('.context-block-region').hide();
         }); 
       })(jQuery);
