@@ -23,13 +23,16 @@
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script src="/sites/odaa.dk/themes/odaa/js/pure_min.js"></script>
     <script src="/sites/odaa.dk/themes/odaa/js/comment.js"></script>
+    <!-- Load navigation region from Drupal that way we have the same navigation -->
     <script>
       (function($) {
         $.ajax({
           url: 'node/1?regions=navigation',
         }).done(function (data) {
-          $('.odaa-main-menu').before(data);
-          $('.odaa-main-menu').empty();
+          var menu = $('.odaa-main-menu');
+          menu.before(data);
+          menu.remove();
+          $('.context-block-region').hide();
         }); 
       })(jQuery);
     </script>
