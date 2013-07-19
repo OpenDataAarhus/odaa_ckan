@@ -27,7 +27,7 @@
     <script>
       (function($) {
         $.ajax({
-          url: '?regions=navigation',
+          url: '/?regions=navigation',
         }).done(function (data) {
           var menu = $('.odaa-main-menu');
           menu.remove().before(data);
