@@ -28,7 +28,8 @@
         $.ajax({
           url: 'node/1?regions=navigation',
         }).done(function (data) {
-          $('#context-block-region-navigation').html(data);
+          $('.odaa-main-menu').before(data);
+          $('.odaa-main-menu').empty();
         }); 
       })(jQuery);
     </script>
