@@ -1,0 +1,42 @@
+<section class="comments">
+  <h2 class="section-title">{{ _('Comment and debate') }}</h2>
+  <p>{{ _('Join the debate! Remember to keep a sober tone so we can have a constructive debate.') }}</p>
+  <div class="comments--list-actions">
+    <a href="#" class="list--action-sort-latest active"><i class="icon-ok"></i>{{ _('Sort: Latest') }}</a>
+    <a href="#" class="list--action-sort-hot"><i class="icon-thumbs-up-alt"></i>{{ _('Sort: Best') }}</a>
+    <a href="#postcomment" class="list--action-create"><i class="icon-comment-alt"></i>{{ _('Write a comment') }}</a>
+  </div>
+  <div class="comments--wrapper" id="{{ pkg_dict.id }}">
+    <ul class="comments--list">
+      <li class="comments--list-item">
+        <div class="comments--list--cid"></div>
+        <h3 class="comments--list-author"></h3>
+        <a href="#commentlink" class="comments--list-posted"></a>
+        <div class="comments--list-content">
+        </div>
+      </li>
+    </ul>
+    <section class="comments--post-comment-wrapper">
+      <h2 class="comments--post-comment-header"><a name="postcomment">{{ _('Write a comment') }}</a></h2>
+      <div class="comments--post-comment">
+        <form action="" method="">
+          <div class="comments--post-field-wrapper">
+            <label class="comments--post-label">{{ _('Username') }}</label>
+            <p>{{ _('Username') }}</p>
+          </div>
+          <div class="comments--post-field-wrapper">
+            <label class="comments--post-label">{{ _('E-mail') }}</label>
+            <p>email@example.com</p>
+          </div>
+          <div class="comments--post-field-wrapper">
+            <label class="comments--post-label">{{ _('Comment') }}</label>
+            <textarea placeholder="{{ _('Write your comment') }}" rows="6"></textarea>
+          </div>
+          <div class="comments--post-comment-actions">
+            <input type="submit" value="{{ _('Post comment') }}" class="button">
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+</section>

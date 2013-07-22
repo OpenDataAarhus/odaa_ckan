@@ -21,7 +21,11 @@ class DrupalClient(object):
 		try:
 			url=self.drupal_url +  "/odaa_user/"+session_id
 			j = urllib2.urlopen(url)
-			session = json.load(j)["username"]
+      username = json.load(j)["username"]
+      if (username)
+        session = username
+      else
+        return False
  
  		except Fault, e:
 			raise DrupalRequestError('Drupal returned error for session_id %r: %r' % (session_id, e))

@@ -1,0 +1,6 @@
+{% if tags %}
+  <section class="dataset--tags">
+    <h2 class="section-title">Tags</h2>
+    {% snippet 'snippets/tag_list.html', tags=tags %}
+  </section>
+{% endif %}

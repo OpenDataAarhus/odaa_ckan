@@ -1,0 +1,10 @@
+<section class="dataset--data-resources">
+  <h2 class="section-title">{{ _('Data and Resources') }}</h2>
+  {% if resources %}
+    <ul class="dataset--list">
+      {% for resource in resources %}
+        {% snippet 'package/snippets/resource_item.html', pkg=pkg, res=resource %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
