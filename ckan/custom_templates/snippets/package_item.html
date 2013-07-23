@@ -29,7 +29,7 @@ Example:
       {% endif %}
     </div>
     <div class="dataset--list-footer">
-      <a href="#" class="dataset--list-comments-link">12 kommentarer</a>|<a href="dataset.php" class="dataset--list-read-more">Se datasættet</a>
+      <a href="#" class="dataset--list-comments-link">12 kommentarer</a>|<a href="{{ h.url_for(controller='package', action='read', id=package.name) }}" class="dataset--list-read-more">Se datasættet</a>
     {% if package.resources and not hide_resources %}
       <ul class="dataset--list-tags">
         {% for resource in h.dict_list_reduce(package.resources, 'format') %}
