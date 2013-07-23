@@ -27,13 +27,12 @@
     <script>
       (function($) {
         $.ajax({
-          url: '/?regions=navigation',
+          url: '/node/7?regions=navigation',
         }).done(function (data) {
           var menu = $('.odaa-main-menu');
           menu.before(data);
           menu.remove();
           $('.context-block-region').hide();
-          $('.menu-mlid-503').addClass('active');
         }); 
       })(jQuery);
     </script>
