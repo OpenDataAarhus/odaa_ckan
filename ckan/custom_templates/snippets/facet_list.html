@@ -47,7 +47,7 @@ alternative_url
           {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
           {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
             <li class="spotbox-menu--list-item {% if item.active %}active{% endif %}">
-              <a {% if item.active %}class="active"{% endif %} href="{{ href }}"><i class="icon-check-empty"></i>{{ label }} {{ count }}</a>
+              <a {% if item.active %}class="active{% endif %} href="{{ href }}"><i class="icon-check{% if !item.active %}-empty{% endif %}"></i>{{ label }} {{ count }}</a>
             </li>
         {% endfor %}
       </ul>
