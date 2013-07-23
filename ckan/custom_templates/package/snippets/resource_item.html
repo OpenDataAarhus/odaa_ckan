@@ -1,5 +1,5 @@
 {% set url = h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id) %}
-<li class="dataset--list-item">
+<li class="dataset--data-resources--list-item">
   <div class="dataset--info">
     <a class="dataset--list-item-heading" title="{{ res.name or res.description }}" href="{{ url }}">
       {{ res.name or res.description }}
@@ -12,7 +12,7 @@
       <span class="empty"></span>
     {% endif %}
   </div>
-  <div class="dataset--actions">
+  <div class="dataset--data-resources--list-actions">
     <a class="dataset--actions-download" href="{{ res.url }}"><i class="icon-download"></i>Download</a>
   </div>
 </li>
