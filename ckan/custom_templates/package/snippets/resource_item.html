@@ -1,14 +1,14 @@
 {% set url = h.url_for(controller='package', action='resource_read', id=pkg.name, resource_id=res.id) %}
 <li class="dataset--data-resources--list-item">
-  <div class="dataset--info">
-    <a class="dataset--list-item-heading" title="{{ res.name or res.description }}" href="{{ url }}">
+  <div class="dataset--data-resources--list-info">
+    <a class="dataset--data-resources--list-item-heading" title="{{ res.name or res.description }}" href="{{ url }}">
       {{ res.name or res.description }}
       <span data-format="xml" property="dc:format" class="ckan--format-label">{{ res.format }}</span>
     </a>
     {% if res.description %}
-      <p class="dataset--description"><span class="dataset--description">{{ h.markdown_extract(res.description, extract_length=80) }}</span></p>
+      <p class="dataset--data-resources--list-description"><span class="dataset--description">{{ h.markdown_extract(res.description, extract_length=80) }}</span></p>
     {% else %}
-      <p class="dataset--description"><span class="dataset--description-empty">{{ _('No description for this resource') }}</span></p>
+      <p class="dataset--data-resources--list-description"><span class="dataset--description-empty">{{ _('No description for this resource') }}</span></p>
       <span class="empty"></span>
     {% endif %}
   </div>
