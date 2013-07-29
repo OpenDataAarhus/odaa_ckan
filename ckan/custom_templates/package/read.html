@@ -24,8 +24,9 @@
   {% block package_additional_info %}
     {% snippet "package/snippets/additional_info.html", pkg_dict=pkg %}
   {% endblock %}
-{% endblock %}
+  
+  {% block comment %}
+    {% snippet "package/snippets/comment.html", pkg_dict=pkg %}
+  {% endblock %}
 
-{% block comment %}
-  {% snippet "package/snippets/comment.html", pkg_dict=pkg %}
-{% endblock %}
+{% endblock %}  
