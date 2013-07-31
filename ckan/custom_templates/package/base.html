@@ -1,0 +1,22 @@
+{% extends "page.html" %}
+
+{% set pkg = c.pkg_dict %}
+
+{% block breadcrumb_content_selected %} class="active"{% endblock %}
+
+{% block breadcrumb_content %}
+  {% if pkg %}
+    {% set dataset = pkg.title or pkg.name %}
+    {% if pkg.organization %}
+      &nbsp;{% set organization = pkg.organization.title or pkg.organization.name %}
+      &nbsp;{% link_for _('Organizations'), controller='organization', action='index' %}
+      &nbsp;{% link_for organization|truncate(30), controller='organization', action='read', id=pkg.organization.name %}
+    {% else %}
+      &nbsp;{% link_for _('Datasets'), controller='package', action='search' %}
+    {% endif %}
+      &nbsp;{% link_for dataset|truncate(30), controller='package', action='read', id=pkg.name %}
+  {% else %}
+    {% link_for _('Datasets'), controller='package', action='search' %}
+    &nbsp;<a href="">{{ _('Create Dataset') }}</a>
+  {% endif %}
+{% endblock %}

@@ -22,6 +22,15 @@
     </header>
     <div class="content-wrapper">
       <div class="content-inner">
+        {% block breadcrumb %}
+          {% if self.breadcrumb_content() | trim %}
+            <div class="breadcrumb">
+              {% snippet 'snippets/home_breadcrumb_item.html' %}
+              {% block breadcrumb_content %}{% endblock %}
+            </div>
+          {% endif %}
+        {% endblock %}
+
         {% block content %}
           {% block primary_content %}{% endblock %}
           {% block secondary_content %}{% endblock %}
