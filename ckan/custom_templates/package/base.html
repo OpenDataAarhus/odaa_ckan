@@ -8,15 +8,13 @@
   {% if pkg %}
     {% set dataset = pkg.title or pkg.name %}
     {% if pkg.organization %}
-      / {% set organization = pkg.organization.title or pkg.organization.name %}
-      / {% link_for _('Organizations'), controller='organization', action='index' %}
-      / {% link_for organization|truncate(30), controller='organization', action='read', id=pkg.organization.name %}
+      / {% link_for _('Datasets'), controller='package', action='search' %}
     {% else %}
       / {% link_for _('Datasets'), controller='package', action='search' %}
     {% endif %}
       / {% link_for dataset|truncate(30), controller='package', action='read', id=pkg.name %}
   {% else %}
-    {% link_for _('Datasets'), controller='package', action='search' %}
+    / {% link_for _('Datasets'), controller='package', action='search' %}
     / <a href="">{{ _('Create Dataset') }}</a>
   {% endif %}
 {% endblock %}
