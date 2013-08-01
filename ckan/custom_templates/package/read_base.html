@@ -21,25 +21,6 @@
       {% snippet 'snippets/organization.html', organization=pkg.organization %}
     {% endif %}
 
-    {% block package_groups %}
-      {% if pkg.groups %}
-        <div class="spotbox">
-          <div class="spotbox--inner">
-            <h3 class="spotbox--header"><i class="icon-folder-open"></i> {{ _('Groups') }}</h3>
-            <ul class="spotbox--list">
-              {% for group in pkg.groups %}
-                <li class="spotbox--list-item last">
-                  <a href="{{ h.url_for(controller='group', action='read', id=group.name) }}">
-                    {{ group.title or group.name }}
-                  </a>
-                </li>
-              {% endfor %}
-            </ul>
-          </div>
-        </div>
-      {% endif %}
-    {% endblock %}
-
     {% snippet 'snippets/social.html' %}
 
     {% block package_license %}
