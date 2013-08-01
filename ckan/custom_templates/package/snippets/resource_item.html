@@ -3,7 +3,7 @@
   <div class="dataset--data-resources--list-info">
     <a class="dataset--data-resources--list-item-heading" title="{{ res.name or res.description }}" href="{{ url }}">
       {{ res.name or res.description }}
-      <span data-format="xml" property="dc:format" class="ckan--format-label">{{ res.format }}</span>
+      <span class="ckan--format-label" property="dc:format" data-format="{{ res.format.lower() or 'data' }}">{{ res.format }}</span>
     </a>
     {% if res.description %}
       <p class="dataset--data-resources--list-description"><span class="dataset--description">{{ h.markdown_extract(res.description, extract_length=80) }}</span></p>
