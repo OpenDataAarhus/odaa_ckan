@@ -1,7 +1,7 @@
 <div class="spotbox">
   <div class="spotbox--inner">
     <h3 class="spotbox--header">{{ organization.title or organization.name }}</h3>
-    <div class="spotbox--image"><a href="{{ url }}"><img width="200" alt="aarhus-kommune" src="{{ organization.image_url or h.url_for_static('/base/images/placeholder-organization.png') }}"></a></div>
+    <div class="spotbox--image"><img width="200" alt="aarhus-kommune" src="{{ organization.image_url or h.url_for_static('/base/images/placeholder-organization.png') }}"></div>
     {% if organization.description %}
       <p class="spotbox--content">
         {{ h.markdown_extract(organization.description, 180) }}
