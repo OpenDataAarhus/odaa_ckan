@@ -46,7 +46,7 @@ alternative_url
           {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
           {% set label = label_function(item) if label_function else h.truncate(item.display_name, 22) %}
           {% set count = count_label(item['count']) if count_label else ('(%d)' % item['count']) %}
-            <li class="spotbox-menu--list-item {% if item.active %}active{% endif %}">
+            <li class="spotbox-menu--filter-list-item {% if item.active %}active{% endif %}">
               <a {% if item.active %}class="active"{% endif %} href="{{ href }}"><i class="icon-check{% if not item.active %}-empty{% endif %}"></i>{{ label }} {{ count }}</a>
             </li>
         {% endfor %}
