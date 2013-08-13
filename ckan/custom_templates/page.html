@@ -22,13 +22,24 @@
     </header>
     <div class="content-wrapper">
       <div class="content-inner">
-        {% block breadcrumb %}
-          {% if self.breadcrumb_content() | trim %}
-            <div class="breadcrumb">
-              {% snippet 'snippets/home_breadcrumb_item.html' %}
-              {% block breadcrumb_content %}{% endblock %}
-            </div>
-          {% endif %}
+        {% block toolbar %}
+          <div class="toolbar">
+            {% block add_action %}
+              {% if self.add_action_content() | trim %}
+                <div class="add_action">
+                  {% block add_action_content %}{% endblock %}
+                </div>
+              {% endif %}
+            {% endblock %}
+            {% block breadcrumb %}
+              {% if self.breadcrumb_content() | trim %}
+                <div class="breadcrumb">
+                  {% snippet 'snippets/home_breadcrumb_item.html' %}
+                  {% block breadcrumb_content %}{% endblock %}
+                </div>
+              {% endif %}
+            {% endblock %}  
+          </div>
         {% endblock %}
 
         {% block content %}
