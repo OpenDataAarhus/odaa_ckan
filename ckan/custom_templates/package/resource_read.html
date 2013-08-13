@@ -34,11 +34,6 @@
       {% endblock %}
       {% block resource_content %}
         {% block resource_read_title %}<h1 class="page-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>{% endblock %}
-        {% block resource_read_url %}
-          {% if res.url %}
-            <p class="muted ellipsis">{{ _('URL:') }} <a href="{{ res.url }}" title="{{ res.url }}">{{ res.url }}</a></p>
-          {% endif %}
-        {% endblock %}
         <div class="prose notes" property="rdfs:label">
           {% if res.description %}
             {{ h.render_markdown(res.description) }}
@@ -50,6 +45,7 @@
             <blockquote>{{ h.markdown_extract(c.package.get('notes')) }}</blockquote>
             <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
           {% endif %}
+        </div>
       {% endblock %}
       {% block resource_additional_information %}
       {% if res %}
