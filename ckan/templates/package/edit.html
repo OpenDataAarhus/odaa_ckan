@@ -6,7 +6,7 @@
 
 {% block breadcrumb_content %}
   {{ super() }}
-  {% link_for _('Edit'), controller='package', action='edit', id=pkg.name %}
+  / {% link_for _('Edit'), controller='package', action='edit', id=pkg.name %}
 {% endblock %}
 
 {% block resources_module %}
