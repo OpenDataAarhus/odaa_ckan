@@ -14,7 +14,7 @@ Example:
   <section class="secondary-content">
     <div class="spotbox">
       <div class="spotbox--inner">
-        <h2 class="spotbox"><i class="icon-sitemap"></i> {{ _("Edit Dataset") }}</h2>
+        <h2 class="spotbox--header"><i class="icon-sitemap"></i> {{ _("Edit Dataset") }}</h2>
         <ul class="spotbox--list">
           <li class="spotbox--list-item{% if action == 'package_edit' %} active{% endif %}">
             {% link_for h.dataset_display_name(pkg)|truncate(30), controller='package', action='edit', id=pkg.name %}
@@ -25,7 +25,7 @@ Example:
     {% set resources = pkg.resources or [] %}
     <div class="spotbox">
       <div class="spotbox--inner">
-        <h2 class="spotbox"><i class="icon-reorder"></i> {{ _("Edit Resources") }}</h2>
+        <h2 class="spotbox--header"><i class="icon-reorder"></i> {{ _("Edit Resources") }}</h2>
         <ul class="spotbox--list">
           {% for resource in resources %}
           <li class="nav-item{{ ' active' if active == resource.id }}">
