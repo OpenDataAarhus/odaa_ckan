@@ -42,9 +42,35 @@
   </head>
 
   <body class="left-sidebar" {% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %}>
-
     {%- block page %}{% endblock -%}
+    
+    <footer class="site-footer">
+      <section class="footer-wrapper">
+        <div class="footer-inner">
+          <div class="newsletter-signup">
+            <form action="http://odaa.us5.list-manage1.com/subscribe/post?u=78ef4b94a7d1865894df78e68&amp;id=28f6dabe60" class="newsletter-form validate" method="post" name="mc-embedded-subscribe-form" novalidate="" target="_blank" id="mc-embedded-subscribe-form">
+              <h2>Tilmeld dig vores nyhedsbrev</h2>
+              <div class="newsletter-field-group">
+                <input class="email newsletter-field required" name="EMAIL" placeholder="Email adresse" type="email" value="">
+                <input class="button submit-button newsletter-button" name="subscribe" type="submit" value="Tilmeld">
+              </div>
+            </form>
+          </div>
 
-     {%- block scripts %}{% endblock -%}
+          <div class="awards">
+            <a href="http://www.itaward.dk/default.asp?Id=320&amp;cpc=1"><img class="footer-logo first" src="/sites/odaa.dk/themes/odaa/images/it-award-midtjylland-logo.png" alt="IT-Award Midtjylland logo" title="IT-Award Midtjylland"></a>
+            <a href="http://www.smartaarhus.dk/"><img class="footer-logo last" src="/sites/odaa.dk/themes/odaa/images/made-with-aarhus-logo.png" alt="Made with Aarhus logo" title="Made with Aarhus"></a>
+          </div>
+          <div class="powered-by">
+            <p><strong>Powered by</strong></p>
+            <a href="http://ckan.org" title="ckan The open source data portal software"><img class="footer-logo first" src="/sites/odaa.dk/themes/odaa/images/ckan-footer-logo.png" alt="ckan logo" title="Powered by ckan"></a>
+            <a href="http://drupal.org" title="An open source content management platform powering millions of websites and applications"><img class="footer-logo last" src="/sites/odaa.dk/themes/odaa/images/drupal-footer-logo.png" alt="Drupal logo" title="Powered by Drupal"></a>
+          </div>
+        </div>
+      </section>  
+    </footer>
+    
+    {%- block scripts %}{% endblock -%}
+     
   </body>
 </html>
