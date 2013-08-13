@@ -41,6 +41,12 @@
             {% endblock %}  
           </div>
         {% endblock %}
+        
+        {% block actions %}
+            <div class="btn-group actions">
+          {% block actions_content %}{% endblock %}
+          </div>
+        {% endblock %}
 
         {% block content %}
           {% block primary_content %}{% endblock %}
