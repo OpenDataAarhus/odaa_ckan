@@ -1,0 +1,40 @@
+{#
+Displays a sidebard module with information for given package
+
+pkg    - The package dict that owns the resources.
+active - The active resource.
+action - The action that this is coming from.
+
+Example:
+
+  {% snippet "package/snippets/info.html", pkg=pkg %}
+
+#}
+{% if pkg and h.check_access('package_update', {'id':pkg.id }) %}
+  <section class="secondary-content">
+    <div class="spotbox">
+      <div class="spotbox--inner">
+        <h2 class="spotbox--header"><i class="icon-sitemap"></i> {{ _("Edit Dataset") }}</h2>
+        <ul class="spotbox--list">
+          <li class="spotbox--list-item{% if action == 'package_edit' %} active{% endif %}">
+            {% link_for h.dataset_display_name(pkg)|truncate(30), controller='package', action='edit', id=pkg.name %}
+          </li>
+        </ul>
+      </div>
+    </div>
+    {% set resources = pkg.resources or [] %}
+    <div class="spotbox">
+      <div class="spotbox--inner">
+        <h2 class="spotbox--header"><i class="icon-reorder"></i> {{ _("Edit Resources") }}</h2>
+        <ul class="spotbox--list">
+          {% for resource in resources %}
+          <li class="nav-item{{ ' active' if active == resource.id }}">
+            {% link_for h.resource_display_name(resource)|truncate(30), controller='package', action='resource_edit', id=pkg.name, resource_id=resource.id, inner_span=true %}
+          </li>
+          {% endfor %}
+          <li class="nav-btn"><a href="{{ h.url_for(controller='package', action='new_resource', id=pkg.name)  }}" class="btn{% if action == 'resource_new' %} disabled{% endif %}"><i class="icon-plus"></i> {{ _('Add New Resource') }}</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+{% endif %}
