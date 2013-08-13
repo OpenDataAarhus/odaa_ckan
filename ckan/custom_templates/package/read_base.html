@@ -9,6 +9,15 @@
           {{ h.build_nav_icon('dataset_activity', _('Activity Stream'), id=pkg.name) }}
         {% endblock %}
       </ul>
+      
+      {% block actions_content %}
+        {# NOTE: Not implemented in stage 1 #}
+        {# <li>{% link_for _('History'), controller='package', action='history', id=pkg.name, class_='btn', icon='undo' %}</li> #}
+        {% if h.check_access('package_update', {'id':pkg.id }) %}
+          <li>{% link_for _('Edit'), controller='package', action='edit', id=pkg.name, class_='btn btn-primary', icon='wrench' %}</li>
+        {% endif %}
+        <li>{{ h.follow_button('dataset', pkg.id) }}</li>
+      {% endblock %}
 
       {% block primary_content_inner %}{% endblock %}
     </div>
