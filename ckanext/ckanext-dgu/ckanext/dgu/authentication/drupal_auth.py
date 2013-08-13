@@ -170,7 +170,6 @@ class DrupalAuthMiddleware(object):
 				user = query.one()
 				log.debug('Drupal user found in CKAN: %s', user.name)
 				
-				log.info(environ)
 
 				# Ask auth_tkt to remember this user so that subsequent requests
 				# will be authenticated by auth_tkt.

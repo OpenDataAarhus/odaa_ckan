@@ -20,14 +20,23 @@ class DrupalClient(object):
 		 
 		try:
 			url=self.drupal_url +  "/odaa_user/"+session_id
-			j = urllib2.urlopen(url)
-      username = json.load(j)["username"]
-      if (username)
-        session = username
-      else
-        return False
+			log.debug('Url to check at: : %s', url) 
+			
+			try:
+				j = urllib2.urlopen(url)
+			except urllib2.URLError  as e:
+				log.error("Url2 error %s " , e )
+				return False
+			  
+			
+			username = json.load(j)["username"]
+		 	
+			if (username <> ""):
+				session = username
+			else:
+				return False
  
- 		except Fault, e:
+ 		except Exception as e:
 			raise DrupalRequestError('Drupal returned error for session_id %r: %r' % (session_id, e))
 		except ProtocolError, e:
 			raise DrupalRequestError('Drupal returned protocol error for session_id %r: %r' % (session_id, e))
