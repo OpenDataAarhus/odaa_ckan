@@ -17,7 +17,7 @@
             <p></p>
           </div>
           <div class="comments--list-item-actions">
-            <a class="comments--list-quote" href="#postcomment"><i class="icon-quote-left"></i>Quote</a>
+            <a class="comments--list-quote" href="#postcomment" onclick="addCommentQuote(this)"><i class="icon-quote-left"></i>Quote</a>
             <ul class="links inline">
               <li class="comment-delete first">
                 <a href="/comment/"><i class="icon-remove-sign"></i>slet</a>
@@ -25,7 +25,7 @@
               <li class="comment-edit last">
                 <a href="/comment/"><i class="icon-edit"></i>redigér</a>
               </li>
-            </ul>    
+            </ul>
           </div>
         </div>
       </li>
@@ -57,5 +57,5 @@
     <h2 class="comments--post-comment-header">{{ _('Not logged in') }}</h2>
       <p>{{ _('Please use the following link to login') }}: <a href="/user">Login</a></p>
   </section>
-  
+
 </section>
