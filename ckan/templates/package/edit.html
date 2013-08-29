@@ -6,15 +6,15 @@
 
 {% block breadcrumb_content %}
   {{ super() }}
-  / {% link_for _('Edit'), controller='package', action='edit', id=pkg.name %}
+  <li class="active">{% link_for _('Edit'), controller='package', action='edit', id=pkg.name %}</li>
 {% endblock %}
 
 {% block resources_module %}
   {% snippet 'package/snippets/resources.html', pkg=pkg, action='resource_edit' %}
 {% endblock %}
 
-{% block actions_content %}
-  <li>{% link_for _('View dataset'), controller='package', action='read', id=pkg.name, class_='btn', icon='eye-open' %}</li>
+{% block content_action %}
+  {% link_for _('View dataset'), controller='package', action='read', id=pkg.name, class_='btn', icon='eye-open' %}
 {% endblock %}
 
 {% block secondary_content %}
