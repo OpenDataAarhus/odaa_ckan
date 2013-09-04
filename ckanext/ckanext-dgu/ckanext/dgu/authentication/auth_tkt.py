@@ -16,7 +16,7 @@ class DGUAuthTktCookiePlugin(AuthTktCookiePlugin):
     # IIdentifier
     def remember(self, environ, identity):
         from pylons import config
-        if 'dgu_drupal_auth' in config['ckan.plugins']:
+        if 'dgu' in config['ckan.plugins']:
             caller = self.who_called_me(2)
             if caller == ('drupal_auth.py', '_do_drupal_login'):
                 # Remember Drupal logins
