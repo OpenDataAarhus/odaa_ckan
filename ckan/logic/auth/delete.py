@@ -8,7 +8,7 @@ def package_delete(context, data_dict):
     user = context['user']
     package = get_package_object(context, data_dict)
 
-    authorized = new_authz.has_user_permission_for_group_or_org(package.owner_org, user, 'delete_dataset')
+    authorized = new_authz.has_user_permission_for_group_or_org(package.owner_org, user, 'delete_dataset') or new_authz.is_sysadmin(user)
     if not authorized:
         return {'success': False, 'msg': _('User %s not authorized to delete package %s') % (user, package.id)}
     else:

@@ -12,7 +12,8 @@ def package_create(context, data_dict=None):
     else:
         check1 = new_authz.check_config_permission('create_dataset_if_not_in_organization') \
             or new_authz.check_config_permission('create_unowned_dataset') \
-            or new_authz.has_user_permission_for_some_org(user, 'create_dataset')
+            or new_authz.has_user_permission_for_some_org(user, 'create_dataset') \
+            or new_authz.is_sysadmin(user)
 
     if not check1:
         return {'success': False, 'msg': _('User %s not authorized to create packages') % user}
