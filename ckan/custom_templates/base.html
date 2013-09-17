@@ -58,7 +58,7 @@
     {%- block page %}{% endblock -%}
   
 	{%- if not "preview" in  h.full_current_url() %} 
-   
+    {# prevent footer from being displayed in the iframe at preview  #}   
     {% block footer %}
     <footer class="site-footer">
       <section class="footer-wrapper">
