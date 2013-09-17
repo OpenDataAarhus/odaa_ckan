@@ -56,8 +56,9 @@
 
   <body class="left-sidebar" {% block bodytag %} data-site-root="{{ h.url('/', locale='default', qualified=true) }}" data-locale-root="{{ h.url('/', qualified=true) }}" data-api-root="{{ g.api_url }}"{% endblock %}>
     {%- block page %}{% endblock -%}
-	
- 
+  
+	{%- if not "preview" in  h.full_current_url() %} 
+   
     {% block footer %}
     <footer class="site-footer">
       <section class="footer-wrapper">
@@ -85,7 +86,9 @@
       </section>  
     </footer>
 {% endblock -%}
-  
+{%- else -%}
+
+{%- endif -%}  
     
     {%- block scripts %}{% endblock -%}
      
