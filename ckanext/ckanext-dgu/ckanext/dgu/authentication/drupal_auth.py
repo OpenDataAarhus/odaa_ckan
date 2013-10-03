@@ -4,7 +4,6 @@ import datetime
 
 from ckanext.dgu.drupalclient import DrupalClient 
 
-
 log = logging.getLogger(__name__)
 
 class DrupalAuthMiddleware(object):
@@ -49,9 +48,12 @@ class DrupalAuthMiddleware(object):
 		return u'%s%s' % (self._user_name_prefix, drupal_id)
 
 	def _log_out(self, environ, new_headers):
+		
+		#print "### Drupal-auth: _log_out environ before change:" + 	pprint.pformat(environ)
 		# don't progress the user info for this request
 		environ['REMOTE_USER'] = None
 		environ['repoze.who.identity'] = None
+		environ['REMOTE_USER_DATA'] = None
 		# tell auth_tkt to logout whilst adding the header to tell
 		# the browser to delete the cookie
 		identity = {}
@@ -61,19 +63,23 @@ class DrupalAuthMiddleware(object):
 		# Remove cookie from request, so that if we are doing a login again in this request then
 		# it is aware of the cookie removal
 		log.debug('Removing cookies from request: %r', environ.get('HTTP_COOKIE', ''))
+		#AFJ print "Remove cookies : " +  environ.get('HTTP_COOKIE', '')
+		
 		cookies = environ.get('HTTP_COOKIE', '').split('; ')
 		cookies = '; '.join([cookie for cookie in cookies if not cookie.startswith('auth_tkt=')])
-		environ['HTTP_COOKIE'] = cookies
-		log.debug('Cookies in request now: %r', environ['HTTP_COOKIE'])
-
-		log.debug('Logged out Drupal user')
+			
+		environ['HTTP_COOKIE'] = cookies	
+		log.debug('Cookies in request now: %r', environ['HTTP_COOKIE'])	
+		log.debug('Logged out Drupal user') 
+		
 
 	def __call__(self, environ, start_response):
 		new_headers = []
-
+		log.info("INIT drupal_autk:" + pprint.pformat (environ ) )
 		self.do_drupal_login_logout(environ, new_headers)
+		log.info("INIT drupal_autk: after login_logout" + pprint.pformat (environ ) )
 	   
-	#log.debug('New headers: %r', new_headers) 
+		#log.debug('New headers: %r', new_headers) 
 		def cookie_setting_start_response(status, headers, exc_info=None):
 			if headers:
 				headers.extend(new_headers)
@@ -140,9 +146,9 @@ class DrupalAuthMiddleware(object):
 			user_name = environ.get('REMOTE_USER', '')
 			if user_name and user_name.startswith(self._user_name_prefix):
 				log.debug('Was logged in as Drupal user %r but Drupal cookie no longer there.', user_name)
-	
+			#log.info("### drupal.auth:  do_drupal_login_logout  before log_out:" + 	pprint.pformat(environ) )
 			self._log_out(environ, new_headers)
-
+			#log.info ("### drupal.auth:  do_drupal_login_logout AFTER LOGOUT :" + 	pprint.pformat(environ) )
 				
 	def _do_drupal_login(self, environ, drupal_session_id, new_headers):
 		if self.drupal_client is None:
