@@ -75,9 +75,9 @@ class DrupalAuthMiddleware(object):
 
 	def __call__(self, environ, start_response):
 		new_headers = []
-		log.info("INIT drupal_autk:" + pprint.pformat (environ ) )
+		#log.info("INIT drupal_autk:" + pprint.pformat (environ ) )
 		self.do_drupal_login_logout(environ, new_headers)
-		log.info("INIT drupal_autk: after login_logout" + pprint.pformat (environ ) )
+		#log.info("INIT drupal_autk: after login_logout" + pprint.pformat (environ ) )
 	   
 		#log.debug('New headers: %r', new_headers) 
 		def cookie_setting_start_response(status, headers, exc_info=None):
