@@ -2,6 +2,32 @@
 
 {% set res = c.resource %}
 
+
+{% block pre_primary %}
+  {% block resource %}
+    <section class="module module-resource">
+      <div class="module-content">
+        <div class="actions">       
+         {% block resource_content_no %}
+        
+          <div class="prose notes" property="rdfs:label">
+         
+            {% if not res.description and c.package.notes %}
+              <h3>{{ _('From the dataset abstract') }}</h3>
+              <blockquote>{{ h.markdown_extract(c.package.get('notes')) }}</blockquote>
+              <p>{% trans dataset=c.package.title, url=h.url_for(controller='package', action='read', id=c.package['name']) %}Source: <a href="{{ url }}">{{ dataset }}</a>{% endtrans %}
+            {% endif %}
+          {% endblock %}
+        </div>
+      </div>
+      {% block data_preview %}
+        {{ h.resource_preview(c.resource, c.package) }}
+      {% endblock %}
+    </section>
+  {% endblock %}
+{% endblock %}
+
+
 {% block primary_content %}
   <div class="primary-content">
     <div class="page--content-wrapper">
@@ -32,7 +58,8 @@
           {% endblock %}
         </ul>
       {% endblock %}
-      {% block resource_content %}
+      
+      {% block resource_content_no1 %}
         {% block resource_read_title %}<h1 class="page-heading">{{ h.resource_display_name(res) | truncate(50) }}</h1>{% endblock %}
         <div class="prose notes" property="rdfs:label">
           {% if res.description %}

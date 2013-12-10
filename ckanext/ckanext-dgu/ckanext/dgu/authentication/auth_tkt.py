@@ -8,6 +8,10 @@ import sys
 import logging
 import os
 
+#AFJ
+# import pprint 
+#AFJ
+
 from repoze.who.plugins.auth_tkt import AuthTktCookiePlugin, _bool
 
 log = logging.getLogger(__name__)
@@ -27,7 +31,15 @@ class DGUAuthTktCookiePlugin(AuthTktCookiePlugin):
                 if user_id.startswith('user_d'):
                     log.debug('Ignoring middleware request to remember Drupal login: %r', user_id)
                 else:
-                    log.info('Remembering non-Drupal identity %r', user_id)
+                    log.info('auth_tkt :Remembering non-Drupal identity %r', user_id)
+                    ##AFJ
+                    # print "### auth_tk: _lRemembering environ :" + 	pprint.pformat(environ)
+                    #AFJ
+                    log.info(" remember  id %s user_id %s  " % (identity ,user_id) )
+                    if environ['REMOTE_USER_DATA'] == None:
+						 log.debug('NO REMOTE_USER_DATA, do not remember this logged out user: %r', user_id)
+						 return
+						
                     return super(DGUAuthTktCookiePlugin, self).remember(environ, identity)
             else:
                 log.error('I do not recognise the caller %r, so not remembering identity', caller)

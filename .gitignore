@@ -17,6 +17,7 @@ pylons_data/*
 
 # other
 pip-requirements-local.txt
+PipFreeze
 migrate/*
 build/*
 tmp/*
@@ -37,6 +38,10 @@ htmlcov/*
 ckan.log
 ckan_deb/DEBIAN/control
 ckan_deb/DEBIAN/prerm
+
+lastInstall
+outFromInstall
+
 
 # node.js
 node_modules/
