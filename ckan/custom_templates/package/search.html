@@ -15,23 +15,15 @@
     <div class="page--content-wrapper">
 	 
 
-  <div class="module-content">
-      {% block page_primary_action %}
-        {% if h.check_access('package_create') %}
-          <div class="page_primary_action">
-            {% link_for _('Add Dataset'), controller='package', action='new', class_='btn btn-primary', icon='plus-sign-alt' %}
-          </div>
-        {% endif %}
-      {% endblock %}
-  </div>
+  
 
       <section class="page--content">
 	  
-        <h1 class="page--title">{{ _('Søg efter dataset') }}</h1>
+        <h1 class="page--title">{{ _('Søg efter datasæt') }}</h1>
       </section>
       <form action="/dataset" method="get" class="dataset-search" data-module="select-switch" id="dataset-search">
         <div class="search-form--content-block">
-          <label class="search-form--content-block--label">{{ _('Search for dataset') }}...</label>
+          <label class="search-form--content-block--label">{{ _('Søg efer datasæt') }}...</label>
           <input name="q" type="text" placeholder="{{ _('For eksempel. parkering, bygninger, etc.') }}" class="search-form--content-block--input" />
           <input type="submit" class="search-form--content-block--button" value="Søg" />
         </div>
