@@ -86,7 +86,7 @@ def package_create(context, data_dict):
     :param extras: the dataset's extras (optional), extras are arbitrary
         (key: value) metadata items that can be added to datasets, each extra
         dictionary should have keys ``'key'`` (a string), ``'value'`` (a
-        string), and optionally ``'deleted'``
+        string)
     :type extras: list of dataset extra dictionaries
     :param relationships_as_object: see ``package_relationship_create()`` for
         the format of relationship dictionaries (optional)
@@ -914,6 +914,10 @@ def activity_create(context, activity_dict, ignore_auth=False):
     :rtype: dictionary
 
     '''
+
+    if not ignore_auth:
+        _check_access('activity_create', context, activity_dict)
+
     if not paste.deploy.converters.asbool(
             config.get('ckan.activity_streams_enabled', 'true')):
         return
@@ -926,9 +930,6 @@ def activity_create(context, activity_dict, ignore_auth=False):
         activity_dict['revision_id'] = model.Session.revision.id
     else:
         activity_dict['revision_id'] = None
-
-    if not ignore_auth:
-        _check_access('activity_create', context, activity_dict)
 
     schema = context.get('schema') or ckan.logic.schema.default_create_activity_schema()
     data, errors = _validate(activity_dict, schema, context)

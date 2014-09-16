@@ -11,14 +11,20 @@
   
 {% block primary_content %}
   <div class="primary-content">
+  
     <div class="page--content-wrapper">
+	 
+
+  
+
       <section class="page--content">
-        <h1 class="page--title">{{ _('Search EFTER DATA for dataset') }}</h1>
+	  
+        <h1 class="page--title">{{ _('Søg efter datasæt') }}</h1>
       </section>
       <form action="/dataset" method="get" class="dataset-search" data-module="select-switch" id="dataset-search">
         <div class="search-form--content-block">
-          <label class="search-form--content-block--label">{{ _('Search for dataset') }}...</label>
-          <input name="q" type="text" placeholder="{{ _('For example. parking, buildings, etc.') }}" class="search-form--content-block--input" />
+          <label class="search-form--content-block--label">{{ _('Søg efer datasæt') }}...</label>
+          <input name="q" type="text" placeholder="{{ _('For eksempel. parkering, bygninger, etc.') }}" class="search-form--content-block--input" />
           <input type="submit" class="search-form--content-block--button" value="Søg" />
         </div>
         <div class="dataset--list-actions">
